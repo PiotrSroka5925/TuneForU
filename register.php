@@ -58,5 +58,19 @@
             $success = false;
             $_SESSION['pass2_error'] = "Hasła nie są identyczne!";
         }
+
+        //REJESTRACJA
+        if($success){
+            $query = $db->prepare("INSERT INTO user (login, user_name, password, email) VALUES (:login, :user_name, :password, :email)");
+            $query->bindValue(':login', $login, PDO::PARAM_STR);
+            $query->bindValue(':user_name', $login, PDO::PARAM_STR);
+            //Hash hasła
+            $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
+            $query->bindValue(':password', $pass_hash, PDO::PARAM_STR);
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+
+            header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/gwork/index.php'); 
+        }
     }
 ?>
