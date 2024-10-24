@@ -26,10 +26,10 @@ USE `musicforum`;
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `users`
+-- Struktura tabeli dla tabeli `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `user_id` int(11) UNSIGNED NOT NULL,
   `login` varchar(25) NOT NULL,
   `user_name` varchar(25) NOT NULL,
@@ -42,9 +42,9 @@ CREATE TABLE `users` (
 --
 
 --
--- Indeksy dla tabeli `users`
+-- Indeksy dla tabeli `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -52,9 +52,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   MODIFY `user_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
