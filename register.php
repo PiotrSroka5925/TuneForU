@@ -44,5 +44,19 @@
             $success = false;
             $_SESSION['email_error'] = "Konto z podanym adresem email już istnieje!";
         }
+
+        //SPRAWDZANIE HASŁA
+        $pass1 = $_POST['password1'];
+        $pass2 = $_POST['password2'];
+
+        if(strlen($pass1) < 8) {
+            $success = false;
+            $_SESSION['pass_error'] = "Hasło musi mieć przynajmiej 8 znaków!";
+        }
+
+        if($pass2 != $pass1){
+            $success = false;
+            $_SESSION['pass2_error'] = "Hasła nie są identyczne!";
+        }
     }
 ?>
