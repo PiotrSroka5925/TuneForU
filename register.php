@@ -27,5 +27,22 @@
             $success = false;
             $_SESSION['login_error'] = "Konto z podanym loginem już istnieje!";
         }
+
+        //WALIDACJA EMAILA
+        $email = $_POST['email'];
+        $snt_email = filter_var($email, FILTER_SANITIZE_EMAIL); //usuwanie polskich znaków itp
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL) || $snt_email != $email)
+        {
+            $success = false;
+            $_SESSION['email_error'] = "Adres email jest niepoprawny!";
+        }
+        $e_query = $db->prepare("SELECT user_id FROM user WHERE email = :email");
+        $e_query->bindValue(':email', $email, PDO::PARAM_STR); $e_query->execute();
+        $account = $e_query->fetch();
+        if($account)
+        {
+            $success = false;
+            $_SESSION['email_error'] = "Konto z podanym adresem email już istnieje!";
+        }
     }
 ?>
