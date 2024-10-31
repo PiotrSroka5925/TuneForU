@@ -96,16 +96,18 @@
                 <div class="d-flex h-100 flex-column align-items-start justify-content-center formColumn">
                     <h1 class="header">Twój Muzyczny Świat</h1> 
 
-                    <form action="login.php" method="POST" class="loginForm">
+                    <form action="login.php" method="POST" class="loginForm pt-5">
                         <input type="text" name="login" placeholder="Login">
                         <input type="password" name="password" placeholder="Hasło">
                         <input type="submit" value="Zaloguj się">
                     </form>
 
-                    <p>Nie masz konta?</p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Utwórz konto
-                    </button>
+                    <div class="pt-5">
+                        <p class="text-white">Nie masz konta?</p>
+                        <button type="button" class="registerButton" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Utwórz konto
+                        </button>
+                    </div>
 
                     <!--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">

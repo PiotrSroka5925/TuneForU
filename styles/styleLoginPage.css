@@ -43,7 +43,31 @@
 }
 .loginForm input[type="submit"]
 {
-    border: 1px solid grey;
+    border: 2px solid rgb(65, 65, 65);
     background-color: transparent;
-    color: red;
+    color: rgb(209, 18, 59);
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+.loginForm input[type="submit"]:hover
+{
+    background-color: rgba(190, 13, 42, 0.158);
+    transition-duration: 0.3s;
+}
+
+.registerButton
+{
+    width: 20vw;
+    background-color: rgb(209, 18, 59);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    border: 0;
+    transition-duration: 0.3s;
+}
+.registerButton:hover
+{
+    background-color: rgb(158, 18, 49);
+    transition-duration: 0.3s;
 }
