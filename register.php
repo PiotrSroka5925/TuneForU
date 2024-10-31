@@ -86,16 +86,19 @@
 <body class="bg-black">
     <div class="container text-center">
         <div class="row">
-            <div class="col">
-                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>">
+            <div class="col-sm-6">
+                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" class="img-fluid">
             </div>
-            <div class="col">
+            <div class="col-sm-4">
                 <h1>naglowek</h1>
 
-                <form>
-                    
+                <form action="login.php" method="POST">
+                    <input type="text" name="login" placeholder="Login" class="form-control">
+                    <input type="password" name="password" placeholder="Hasło" class="form-control">
+                    <input type="submit" value="Zaloguj się">
                 </form>
 
+                <p>Nie masz konta?</p>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Utwórz konto
                 </button>
