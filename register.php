@@ -70,7 +70,7 @@
             $query->bindValue(':email', $email, PDO::PARAM_STR);
             $query->execute();
 
-            header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php'); 
+            header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/register.php'); 
         }
     }
 ?>
