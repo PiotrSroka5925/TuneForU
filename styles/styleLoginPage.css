@@ -1,0 +1,49 @@
+#main
+{
+    height: 100vh !important;
+    margin: 0;
+}
+#row
+{
+    height: 100vh !important;
+}
+
+.footer
+{
+    height: 50px;
+}
+.formColumn
+{
+    padding: 0 10rem 0 0 !important;
+}
+.imageColumn
+{
+    padding: 10rem !important;
+}
+
+.header
+{
+    font-size: 4.5rem;
+    color: white;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.loginForm
+{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+.loginForm input
+{
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    border: 0;
+}
+.loginForm input[type="submit"]
+{
+    border: 1px solid grey;
+    background-color: transparent;
+    color: red;
+}

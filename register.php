@@ -80,51 +80,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TuneForU</title>
+    <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/styleLoginPage.css"?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body class="bg-black">
-    <div class="container text-center">
-        <div class="row">
+    <div class="container-fluid" id="main">
+        <div class="row gx-5 m-0" id="row">
             <div class="col-sm-6">
-                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" class="img-fluid">
+                <div class="d-flex h-100 align-items-center justify-content-center imageColumn">
+                    <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" class="img-fluid">
+                </div>
             </div>
-            <div class="col-sm-4">
-                <h1>naglowek</h1>
+            <div class="col-sm-6">
+                <div class="d-flex h-100 flex-column align-items-start justify-content-center formColumn">
+                    <h1 class="header">Twój Muzyczny Świat</h1> 
 
-                <form action="login.php" method="POST">
-                    <input type="text" name="login" placeholder="Login" class="form-control">
-                    <input type="password" name="password" placeholder="Hasło" class="form-control">
-                    <input type="submit" value="Zaloguj się">
-                </form>
+                    <form action="login.php" method="POST" class="loginForm">
+                        <input type="text" name="login" placeholder="Login">
+                        <input type="password" name="password" placeholder="Hasło">
+                        <input type="submit" value="Zaloguj się">
+                    </form>
 
-                <p>Nie masz konta?</p>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Utwórz konto
-                </button>
+                    <p>Nie masz konta?</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Utwórz konto
+                    </button>
 
-                <!--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Understood</button>
+                    <!--<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Understood</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>-->
-            </div>
-        </div>
-        <div class="row">
-            <div class="footer">
-                footer
+                    </div>-->
+                </div>
             </div>
         </div>
     </div>
