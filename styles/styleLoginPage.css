@@ -71,3 +71,16 @@
     background-color: rgb(158, 18, 49);
     transition-duration: 0.3s;
 }
+
+.modal
+{
+    background-color: rgba(255, 255, 255, 0.096);
+}
+.bg-black
+{
+    color: white !important;
+}
+.btn-close
+{
+    --bs-btn-close-color: #ffffff !important;
+}
