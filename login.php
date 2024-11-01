@@ -29,7 +29,7 @@
             unset($_SESSION['login_error']);
             header('Location: ' . $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu/index.php');
         } else {
-            $_SESSION['login_error'] = "Podane dane logowania są nieprawidłowe!";
+            $_SESSION['login2_error'] = "Podane dane logowania są nieprawidłowe!";
             header('Location:'. $_SERVER['HTTP_REFERER']);
         }
     }
