@@ -113,6 +113,17 @@
                         <input type="submit" value="Zaloguj się">
                     </form>
 
+                    <?php 
+                        if(isset($_SESSION['login2_error']))
+                        {
+                            echo '<div class="alert alert-warning d-flex align-items-center mt-3 position-absolute top-0 start-50 translate-middle-x" role="alert">';
+                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                            echo $_SESSION['login2_error'];
+                            echo '</div>';  
+                            unset($_SESSION['login2_error']);
+                        }
+                    ?>
+
                     <div class="pt-5">
                         <p class="text-white">Nie masz konta?</p>
                         <button type="button" class="registerButton" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -142,7 +153,7 @@
                                     <?php 
                                         if(isset($_SESSION['pass_error']))
                                         {
-                                            echo '<div class="alert alert-warning d-flex align-items-center" role="alert">';
+                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
                                             echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
                                             echo $_SESSION['pass_error'];
                                             echo '</div>';  
