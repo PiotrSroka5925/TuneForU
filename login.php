@@ -26,7 +26,7 @@
             $_SESSION['logged_login'] = $row['login'];
             $_SESSION['logged_username'] = $row['user_name'];
             $_SESSION['logged_email'] = $row['email'];
-            unset($_SESSION['login_error']);
+            unset($_SESSION['login2_error']);
             header('Location: ' . $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu/index.php');
         } else {
             $_SESSION['login2_error'] = "Podane dane logowania są nieprawidłowe!";
