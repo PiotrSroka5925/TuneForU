@@ -14,11 +14,12 @@
 }
 .formColumn
 {
-    padding: 0 10rem 0 0 !important;
+    width: 100%;
 }
-.imageColumn
+
+#upscaledLogo
 {
-    padding: 10rem !important;
+    padding: 4em;
 }
 
 .header
@@ -32,7 +33,7 @@
 {
     display: flex;
     flex-direction: column;
-    width: 20vw;
+   
 }
 .loginForm input
 {
@@ -40,6 +41,7 @@
     margin-top: 15px;
     padding: 10px;
     border: 0;
+    width: 300px;
 }
 .loginForm input[type="submit"]
 {
@@ -57,7 +59,7 @@
 
 .registerButton
 {
-    width: 20vw;
+    width: 300px;
     background-color: rgb(209, 18, 59);
     color: white;
     font-weight: bold;
