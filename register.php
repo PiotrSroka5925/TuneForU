@@ -127,6 +127,41 @@
                                         <input type="password" name="password2" placeholder="Potwierdź Hasło">
                                         <input type="submit" value="Zarejestruj się">
                                     </form>
+
+                                    <?php 
+                                        if(isset($_SESSION['pass_error']))
+                                        {
+                                            echo '<div class="alert alert-warning d-flex align-items-center" role="alert">';
+                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                                            echo $_SESSION['pass_error'];
+                                            echo '</div>';  
+                                            unset($_SESSION['pass_error']);
+                                        }
+                                        if(isset($_SESSION['pass2_error']))
+                                        {
+                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                                            echo $_SESSION['pass2_error'];
+                                            echo '</div>';  
+                                            unset($_SESSION['pass2_error']);
+                                        }
+                                        if(isset($_SESSION['login_error']))
+                                        {
+                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                                            echo $_SESSION['login_error'];
+                                            echo '</div>';  
+                                            unset($_SESSION['login_error']);
+                                        }
+                                        if(isset($_SESSION['email_error']))
+                                        {
+                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                                            echo $_SESSION['email_error'];
+                                            echo '</div>';  
+                                            unset($_SESSION['email_error']);
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
