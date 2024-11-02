@@ -3,7 +3,7 @@
 
     require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
 
-    if(!isset($_SESSION['logged_id']) && isset($_POST['title'])){
+    if(isset($_SESSION['logged_id']) && isset($_POST['title'])){
         $success = true;
 
         $title = $_POST['title'];
@@ -48,11 +48,25 @@
                 }
             }
         }
+
+        if($success){
+            $query = $db->prepare("INSERT INTO post(title, text, date, data, user_id) VALUES (:title, :text, :date, :data, :user_id)");
+            $query->execute(array(
+                ':title' => $title,
+                ':text' => $text,
+                ':date' => date("Y-m-d"),
+                ':data' => json_encode($data),
+                ':user_id' => $_SESSION['logged-id']
+            ));
+
+            header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php'); 
+        }
     }
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
     <input type="text" name="title" id="">
+    <input type="text" name="text" id="">
     <input name="upload[]" type="file" accept="image/*" multiple/>
     <input type="submit" value="test">
 </form>
