@@ -1,0 +1,88 @@
+#main
+{
+    height: 100vh !important;
+    margin: 0;
+}
+#row
+{
+    height: 100vh !important;
+}
+
+.footer
+{
+    height: 50px;
+}
+.formColumn
+{
+    width: 100%;
+}
+
+#upscaledLogo
+{
+    padding: 4em;
+}
+
+.header
+{
+    font-size: 4.5rem;
+    color: white;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.loginForm
+{
+    display: flex;
+    flex-direction: column;
+   
+}
+.loginForm input
+{
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    border: 0;
+    width: 300px;
+}
+.loginForm input[type="submit"]
+{
+    border: 2px solid rgb(65, 65, 65);
+    background-color: transparent;
+    color: rgb(209, 18, 59);
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+.loginForm input[type="submit"]:hover
+{
+    background-color: rgba(190, 13, 42, 0.158);
+    transition-duration: 0.3s;
+}
+
+.registerButton
+{
+    width: 300px;
+    background-color: rgb(209, 18, 59);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    border: 0;
+    transition-duration: 0.3s;
+}
+.registerButton:hover
+{
+    background-color: rgb(158, 18, 49);
+    transition-duration: 0.3s;
+}
+
+.modal
+{
+    background-color: rgba(255, 255, 255, 0.096);
+}
+.bg-black
+{
+    color: white !important;
+}
+.btn-close
+{
+    --bs-btn-close-color: #ffffff !important;
+}
