@@ -18,12 +18,41 @@
             $_SESSION['text_error'] = "Treść musi mieć od 3 do 500 znaków!";
         }
 
+        $data = array();
         if (!empty($_FILES['upload']['name'][0])) {
             if(array_sum($_FILES['upload']['size']) / 1048576 > 10){
                 $success = false;
-                $_SESSION['data_error'] = "Maksymalny rozmiar plików to 10MB";
+                $_SESSION['data_error'] = "Maksymalny rozmiar załączników to 10MB!";
+            }
+            else{
+                $dir = $_SERVER['DOCUMENT_ROOT'].'/tuneforu/data/';
+                $files_count = count($_FILES['upload']['name']);
+                $extensions = array("xbm", "tif", "pjp", "apng", "svgz", "jpg", "jpeg", "tiff", "gif", "svg", "jfif", "webp", "png", "bmp", "pjpeg", "avif");
+                
+                for ($i = 0; $i < $files_count; $i++) {
+                    $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
+                    if ($tmpFilePath != "") {
+                        $fileName = $_FILES['upload']['name'][$i];
+                        $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+                        
+                        if (in_array($extension, $extensions)) {
+                            if ($success && move_uploaded_file($tmpFilePath, $dir . basename($fileName))) {
+                                array_push($data, "/data/".$fileName);
+                            }
+                        }
+                        else{
+                            $success = false;
+                            $_SESSION['data_error'] = "Nieprawidłowy typ pliku!";
+                        }           
+                    }
+                }
             }
         }
     }
 ?>
 
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" id="">
+    <input name="upload[]" type="file" accept="image/*" multiple/>
+    <input type="submit" value="test">
+</form>
