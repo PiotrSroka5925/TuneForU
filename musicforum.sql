@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 24, 2024 at 01:52 PM
+-- Generation Time: Lis 02, 2024 at 02:00 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -26,6 +26,22 @@ USE `musicforum`;
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `post`
+--
+
+CREATE TABLE `post` (
+  `post_id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `text` varchar(500) NOT NULL,
+  `date` datetime NOT NULL,
+  `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`data`)),
+  `likes` int(11) NOT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `user`
 --
 
@@ -42,6 +58,13 @@ CREATE TABLE `user` (
 --
 
 --
+-- Indeksy dla tabeli `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`post_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indeksy dla tabeli `user`
 --
 ALTER TABLE `user`
@@ -52,10 +75,26 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
