@@ -4,6 +4,12 @@
     require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
 
     if(isset($_SESSION['logged_id']) && isset($_POST['title'])){
-        
+        $success = true;
+
+        $title = $_POST['title'];
+        if(strlen($title) < 3 || strlen($title) > 50){
+            $success = false;
+            $_SESSION['title_error'] = "Tytuł musi mieć od 3 do 50 znaków!";
+        }
     }
 ?>
