@@ -56,17 +56,10 @@
                 ':text' => $text,
                 ':date' => date("Y-m-d"),
                 ':data' => json_encode($data),
-                ':user_id' => $_SESSION['logged-id']
+                ':user_id' => $_SESSION['logged_id']
             ));
 
             header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php'); 
         }
     }
 ?>
-
-<form action="" method="post" enctype="multipart/form-data">
-    <input type="text" name="title" id="">
-    <input type="text" name="text" id="">
-    <input name="upload[]" type="file" accept="image/*" multiple/>
-    <input type="submit" value="test">
-</form>
