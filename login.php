@@ -23,14 +23,14 @@
     
             //Sprawdzanie hasła
             if ($queryResult && password_verify($pass, $queryResult['password'])) {
-                $_SESSION['logged_id'] = $row['user_id'];
-                $_SESSION['logged_login'] = $row['login'];
-                $_SESSION['logged_username'] = $row['user_name'];
-                $_SESSION['logged_email'] = $row['email'];
-                unset($_SESSION['login_error']);
+                $_SESSION['logged_id'] = $queryResult['user_id'];
+                $_SESSION['logged_login'] = $queryResult['login'];
+                $_SESSION['logged_username'] = $queryResult['user_name'];
+                $_SESSION['logged_email'] = $queryResult['email'];
+                unset($_SESSION['login2_error']);
                 header('Location: ' . $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu/index.php');
             } else {
-                $_SESSION['login_error'] = "Podane dane logowania są nieprawidłowe!";
+                $_SESSION['login2_error'] = "Podane dane logowania są nieprawidłowe!";
                 header('Location:'. $_SERVER['HTTP_REFERER']);
             }
         }
@@ -39,4 +39,3 @@
         header('Location: ' . $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu/index.php');
     }
 ?>
-

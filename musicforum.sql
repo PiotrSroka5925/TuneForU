@@ -35,7 +35,7 @@ CREATE TABLE `post` (
   `text` varchar(500) NOT NULL,
   `date` datetime NOT NULL,
   `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`data`)),
-  `likes` int(11) NOT NULL,
+  `likes` int(11) NOT NULL DEFAULT 0,
   `user_id` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
