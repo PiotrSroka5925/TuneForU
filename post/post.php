@@ -11,8 +11,14 @@
         $query->execute();
 
         $post = $query->fetch();
+
+        if (!$post) {
+            header('Location: '.$redirectUrl);
+            exit;
+        }
     }
     else{
         header('Location: '.$redirectUrl); 
+        exit;
     }
 ?>
