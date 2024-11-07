@@ -1,6 +1,6 @@
 .sidebar {
     height: 100vh;
-    width: 250px;
+    
     background-color: #000;
     color: #fff;
     position: fixed;
@@ -12,11 +12,11 @@
     padding: 10px 20px;
     display: block;
     text-decoration: none;
+    border-radius: 25px;
 }
 .nav-link:hover {
-    background-color: #1d1d1d;
-    border-radius: 25px;
-    color: white;
+    background-color: #1d1d1d;   
+    color: rgb(209, 18, 59);
 }
 .nav-item {
     margin-bottom: 15px;
@@ -27,7 +27,7 @@
     padding-left: 20px;
 }
 .btn-custom {
-    background-color: #1d9bf0;
+    background-color: rgb(209, 18, 59);
     color: #fff;
     border: none;
     width: 80%;
