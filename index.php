@@ -44,11 +44,26 @@
                     </div>  
                 </div>
 
-                <div class="row postContent">
-
+                <div class="row postContent text-start mt-4">
+                    <p class="long-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Libero ut facilis laboriosam consectetur iste! 
+                        Beatae est et placeat veniam vitae doloremque totam 
+                        distinctio repellendus recusandae sapiente, assumenda, 
+                        sequi nulla facere?
+                    </p>
+                    <script>
+                        var paragraph = document.getElementsByClassName("long-text")[0];
+                        var text = paragraph.innerHTML;
+                        paragraph.innerHTML = "";
+                        var words = text.split(" ");
+                        for (i = 0; i < 70; i++) {
+                            paragraph.innerHTML += words[i] + " ";
+                        }
+                        paragraph.innerHTML += "...";
+                    </script>
                 </div>
 
-                <div class="row postImages">
+                <div class="row d-flex postImages mt-3">
 
                 </div>
 
