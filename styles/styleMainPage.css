@@ -19,3 +19,12 @@
     color: grey;
 }
 
+.interactions
+{
+    color: gray;
+}
+.interactions span
+{
+    font-size: small;
+    margin-left: 5px;
+}

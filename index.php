@@ -34,9 +34,7 @@
                             <p class="pe-5 date">post date</p>
                         </div>
                         <div class="col-sm-3 text-end">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
-                            </svg>
+                            <i class="bi bi-three-dots"></i>
                         </div>
                     </div>
 
@@ -64,13 +62,26 @@
                     </script>
                 </div>
 
-                <div class="row d-flex postImages mt-3">
-                    <img src="#" alt="post_image">
-                    <img src="#" alt="post_image">
-                    <img src="#" alt="post_image">
+                <div class="row postImages mt-3">
+                    <div class="d-flex justify-content-around">
+                        <img src="#" alt="post_image">
+                        <img src="#" alt="post_image">
+                        <img src="#" alt="post_image">
+                    </div>
                 </div>
 
-                <div class="row d-flex justify-content-between mt-3 postInteractions">
+                <div class="row my-3">
+                    <div class="d-flex justify-content-evenly">
+                        <div class="interactions">
+                            <i class="bi bi-hand-thumbs-up"></i><span>0</span>
+                        </div>
+                        <div class="interactions">
+                            <i class="bi bi-chat"></i><span>0</span>
+                        </div>
+                        <div class="interactions">
+                            <i class="bi bi-bar-chart"></i><span>0</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
