@@ -59,6 +59,16 @@
             $_SESSION['pass2_error'] = "Hasła nie są identyczne!";
         }
 
+        $profile_picture = "";
+        if(isset($_FILES['profile_picture'])){
+            if($_FILES['profile_picture']['size'] / 1048576 > 2){
+                $success = false;
+                $_SESSION['profile_picture_error'] = "Maksymalny rozmiar pliku to 2MB!";
+            }else{
+
+            }
+        }
+
         //REJESTRACJA
         if($success){
             $query = $db->prepare("INSERT INTO user (login, user_name, password, email) VALUES (:login, :user_name, :password, :email)");
