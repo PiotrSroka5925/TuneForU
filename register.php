@@ -65,19 +65,22 @@
                 $success = false;
                 $_SESSION['profile_picture_error'] = "Maksymalny rozmiar pliku to 2MB!";
             }else{
-                $dir = $_SERVER['DOCUMENT_ROOT'].'/tuneforu/img/profiles';
-                $extensions = array("xbm", "tif", "pjp", "apng", "svgz", "jpg", "jpeg", "tiff", "jfif", "webp", "png", "bmp", "pjpeg", "avif");
-                if (in_array($extension, $extensions)) {
-                    $tmpFilePath = $_FILES['profile_picture']['tmp_name'];
+                $tmpFilePath = $_FILES['profile_picture']['tmp_name'];
+                if($tmpFilePath != ""){
                     $fileName = $_FILES['profile_picture']['name'];
-                    if ($success && move_uploaded_file($tmpFilePath, $dir . basename($fileName))) {
-                        array_push($data, "/img/profiles/".$fileName);
+                    $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+                    $extensions = array("xbm", "tif", "pjp", "apng", "svgz", "jpg", "jpeg", "tiff", "jfif", "webp", "png", "bmp", "pjpeg", "avif");
+                    if (in_array($extension, $extensions)) {
+                        $dir = $_SERVER['DOCUMENT_ROOT'].'/tuneforu/img/profiles/';
+                        if ($success && move_uploaded_file($tmpFilePath, $dir . basename($fileName))) {
+                            $profile_picture = "/img/profiles/".$fileName;
+                        }
                     }
+                    else{
+                        $success = false;
+                        $_SESSION['profile_picture_error'] = "Nieprawidłowy typ pliku!";
+                    }  
                 }
-                else{
-                    $success = false;
-                    $_SESSION['profile_picture_error'] = "Nieprawidłowy typ pliku!";
-                }   
             }
         }
 
