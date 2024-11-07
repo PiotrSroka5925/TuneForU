@@ -59,7 +59,7 @@
             $_SESSION['pass2_error'] = "Hasła nie są identyczne!";
         }
 
-        $profile_picture = "";
+        $profile_picture = "/img/profiles/default.jpg";
         if(isset($_FILES['profile_picture'])){
             if($_FILES['profile_picture']['size'] / 1048576 > 2){
                 $success = false;
@@ -83,13 +83,14 @@
 
         //REJESTRACJA
         if($success){
-            $query = $db->prepare("INSERT INTO user (login, user_name, password, email) VALUES (:login, :user_name, :password, :email)");
+            $query = $db->prepare("INSERT INTO user (login, user_name, password, email, profile_picture) VALUES (:login, :user_name, :password, :email, :profile_picture)");
             $query->bindValue(':login', $login, PDO::PARAM_STR);
             $query->bindValue(':user_name', $login, PDO::PARAM_STR);
             //Hash hasła
             $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
             $query->bindValue(':password', $pass_hash, PDO::PARAM_STR);
             $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->bindValue(':profile_picture', $profile_picture, PDO::PARAM_STR);
             $query->execute();
 
             header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/register.php'); 
