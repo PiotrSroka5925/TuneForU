@@ -216,6 +216,17 @@
                                         <input type="email" name="email" placeholder="E-mail">
                                         <input type="password" name="password1" placeholder="Hasło">
                                         <input type="password" name="password2" placeholder="Potwierdź Hasło">
+                                        <div class="d-flex align-items-center mt-3" id="profilePictureForm">
+                                            <img id="profilePicturePreview" src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/profiles/default.jpg"?>" alt="Domyślne zdjęcie profilowe" class="img-fluid rounded-circle">
+                                            
+                                            <div class="d-flex flex-column ms-2">                                 
+                                                <label for="profile_picture" class="custom-file-upload">
+                                                    <input type="file" name="profile_picture" id="profile_picture">
+                                                    Wybierz plik
+                                                </label>
+                                                <span id="profilePictureFileName">Nie wybrano pliku</span>
+                                            </div>
+                                        </div>
                                         <input type="submit" value="Zarejestruj się">
                                     </form>
                                 </div>
@@ -228,7 +239,7 @@
     </div>
 
     
-    
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/register-profile-picture.js"?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
