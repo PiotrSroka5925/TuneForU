@@ -76,7 +76,7 @@
                 }
                 else{
                     $success = false;
-                    $_SESSION['data_error'] = "Nieprawidłowy typ pliku!";
+                    $_SESSION['profile_picture_error'] = "Nieprawidłowy typ pliku!";
                 }   
             }
         }
@@ -93,6 +93,7 @@
             $query->execute();
 
             header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/register.php'); 
+            exit();
         }
     }
 ?>
@@ -167,7 +168,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body d-flex flex-column align-items-center justify-content-center">
-                                    <form method="POST" class="loginForm">
+                                    <form method="POST" class="loginForm" enctype="multipart/form-data">
                                         <input type="text" name="login" placeholder="Login">
                                         <input type="email" name="email" placeholder="E-mail">
                                         <input type="password" name="password1" placeholder="Hasło">
