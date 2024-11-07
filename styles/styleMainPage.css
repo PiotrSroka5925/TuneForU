@@ -1,0 +1,20 @@
+.postBox
+{
+    border: 1px solid rgb(68, 68, 68);
+}
+.postContainer
+{
+    color: white;
+    border-bottom: 1px solid rgb(68, 68, 68);
+    border-top: 1px solid rgb(68, 68, 68);
+}
+
+.username
+{
+    font-weight: bold;
+}
+.login, .date
+{
+    font-size: small; 
+    color: grey;
+}

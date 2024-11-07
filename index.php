@@ -9,7 +9,7 @@
 </head>
 <body class="bg-black">
     <div class="container d-flex">
-        <div class="col menu">
+        <div class="col-md-3 menu">
             <img src="img/logo_white.png" alt="logo">
             <div>
                 <ul>
@@ -20,10 +20,44 @@
                 </ul>
             </div>
         </div>
-        <div class="col">
-            posts
+        <div class="col-md-6 text-center postBox">
+            <div class="container postContainer">
+                <div class="row container postHeader">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-sm-3 text-center">
+                            <img src="#" alt="profile_pic" width="60" height="60">
+                        </div>
+                        <div class="col-sm-6 d-flex justify-content-evenly align-items-baseline">
+                            <p class="username">username</p>
+                            <p class="login">@user login |</p>
+                            <p class="pe-5 date">post date</p>
+                        </div>
+                        <div class="col-sm-3 text-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="row postTitle">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </div>  
+                </div>
+
+                <div class="row postContent">
+
+                </div>
+
+                <div class="row postImages">
+
+                </div>
+
+                <div class="row postInteractions">
+
+                </div>
+            </div>
         </div>
-        <div class="col">
+        <div class="col-md-3">
             additional content
         </div>
     </div>
