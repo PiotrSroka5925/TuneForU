@@ -16,6 +16,7 @@
 .nav-link:hover {
     background-color: #1d1d1d;
     border-radius: 25px;
+    color: white;
 }
 .nav-item {
     margin-bottom: 15px;
@@ -36,5 +37,5 @@
     text-align: center;
 }
 .btn-custom:hover {
-    background-color: #1a8cd8;
+    background-color: gray;
 }
