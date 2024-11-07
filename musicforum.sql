@@ -50,7 +50,8 @@ CREATE TABLE `user` (
   `login` varchar(25) NOT NULL,
   `user_name` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(320) NOT NULL
+  `email` varchar(320) NOT NULL,
+  `profile_picture` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
