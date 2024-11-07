@@ -121,7 +121,60 @@
         </symbol>
     </svg>
 
-    <div class="container-fluid" id="main">
+    <div class="container-fluid position-relative" id="main">
+        <div id="errorDiv" class="position-absolute top-0 start-50 translate-middle-x">
+            <?php 
+                if(isset($_SESSION['login2_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['login2_error'];
+                    echo '</div>';  
+                    unset($_SESSION['login2_error']);
+                }
+                if(isset($_SESSION['pass_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['pass_error'];
+                    echo '</div>';  
+                    unset($_SESSION['pass_error']);
+                }
+                if(isset($_SESSION['pass2_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['pass2_error'];
+                    echo '</div>';  
+                    unset($_SESSION['pass2_error']);
+                }
+                if(isset($_SESSION['login_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['login_error'];
+                    echo '</div>';  
+                    unset($_SESSION['login_error']);
+                }
+                if(isset($_SESSION['email_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['email_error'];
+                    echo '</div>';  
+                    unset($_SESSION['email_error']);
+                }
+                if(isset($_SESSION['profile_picture_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['profile_picture_error'];
+                    echo '</div>';  
+                    unset($_SESSION['profile_picture_error']);
+                }
+            ?>
+        </div>
+
         <div class="row gx-5 m-0" id="row">
             <div class="col-sm-12 col-md-6">
                 <div class="d-flex h-100 align-items-center justify-content-center imageColumn">
@@ -138,18 +191,7 @@
                         <input type="password" name="password" placeholder="Hasło">
                         <input type="submit" value="Zaloguj się">
                     </form>
-
-                    <?php 
-                        if(isset($_SESSION['login2_error']))
-                        {
-                            echo '<div class="alert alert-warning d-flex align-items-center mt-3 position-absolute top-0 start-50 translate-middle-x" role="alert">';
-                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                            echo $_SESSION['login2_error'];
-                            echo '</div>';  
-                            unset($_SESSION['login2_error']);
-                        }
-                    ?>
-
+                    
                     <div class="pt-5">
                         <p class="text-white">Nie masz konta?</p>
                         <button type="button" class="registerButton" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -175,41 +217,6 @@
                                         <input type="password" name="password2" placeholder="Potwierdź Hasło">
                                         <input type="submit" value="Zarejestruj się">
                                     </form>
-
-                                    <?php 
-                                        if(isset($_SESSION['pass_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['pass_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['pass_error']);
-                                        }
-                                        if(isset($_SESSION['pass2_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['pass2_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['pass2_error']);
-                                        }
-                                        if(isset($_SESSION['login_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['login_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['login_error']);
-                                        }
-                                        if(isset($_SESSION['email_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['email_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['email_error']);
-                                        }
-                                    ?>
                                 </div>
                             </div>
                         </div>
