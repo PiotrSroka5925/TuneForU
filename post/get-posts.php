@@ -3,6 +3,7 @@
 
     if(isset($_POST['range'])){
         $range = filter_input(INPUT_POST, 'range');
+        $order = filter_input(INPUT_POST, 'order');
 
         $range_length = 5;
 
@@ -12,7 +13,19 @@
             $limit_min = 0;
         }
 
-        $query = $db->prepare("SELECT * FROM post JOIN user USING (user_id) LIMIT {$limit_min}, {$range_length}");
+        switch ($order){
+            case "date":
+                $order = "ORDER BY date DESC";
+                break;
+            case "likesAllTime":
+                $order = "ORDER BY likes DESC";
+                break;
+            default:
+                $order = "WHERE date >= NOW() - INTERVAL 30 DAY ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                break;
+        }
+
+        $query = $db->prepare("SELECT * FROM post JOIN user USING (user_id) $order LIMIT {$limit_min}, {$range_length}");
         $query->execute();
 
         $posts = $query->fetchAll();
