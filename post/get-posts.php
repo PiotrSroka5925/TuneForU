@@ -11,5 +11,10 @@
         } else {
             $limit_min = 0;
         }
+
+        $query = $db->prepare("SELECT * FROM post JOIN user USING (user_id) LIMIT {$limit_min}, {$range_length}");
+        $query->execute();
+
+        $posts = $query->fetchAll();
     }
 ?>
