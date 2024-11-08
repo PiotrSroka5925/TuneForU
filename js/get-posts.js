@@ -24,6 +24,26 @@ document.addEventListener("DOMContentLoaded", function() {
         } catch (error) {
             console.error("Błąd podczas ładowania postów:", error);
         }
+
+        function createLoadMoreButton(append) {
+            let button = document.getElementById("loadMoreButton");
+    
+            if(button){
+                postsContainer.removeChild(button);
+            }
+    
+            if(append){
+                button = document.createElement("button");
+                button.id = "loadMoreButton";
+                button.textContent = "Załaduj więcej";
+                button.addEventListener("click", () => {
+                    range += 1;
+                    getPosts();
+                });
+    
+                postsContainer.appendChild(button);
+            }  
+        }
     }
 
     // Ładowanie pierwszych wpisów po załadowaniu strony
