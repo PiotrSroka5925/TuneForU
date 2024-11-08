@@ -2,7 +2,7 @@
     require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
 
     if(isset($_POST['range'])){
-        $range = filter_input(INPUT_POST, 'range');
+        $range = filter_input(INPUT_POST, 'range', FILTER_VALIDATE_INT);
         $order = filter_input(INPUT_POST, 'order');
 
         $range_length = 5;
