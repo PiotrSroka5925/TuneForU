@@ -224,7 +224,7 @@
                                             
                                             <div class="d-flex flex-column ms-2">                                 
                                                 <label for="profile_picture" class="custom-file-upload">
-                                                    <input type="file" name="profile_picture" id="profile_picture">
+                                                    <input type="file" name="profile_picture" id="profile_picture" accept="image/*">
                                                     Wybierz plik
                                                 </label>
                                                 <span id="profilePictureFileName">Nie wybrano pliku</span>
