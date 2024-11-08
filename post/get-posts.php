@@ -29,20 +29,10 @@
         $query->execute();
 
         $posts = $query->fetchAll();
-
-        if($posts !=null){
+        
+        if($posts !=null){  
             foreach($posts as $post){
-                echo "{$post['post_id']} <br>";
-                echo "{$post['title']} <br>";
-                echo "{$post['text']} <br>";
-                echo "{$post['date']} <br>";
-                var_dump($post['data']);
-                echo "<br>{$post['likes']} <br>";
-                echo "{$post['user_id']} <br>";
-                echo "{$post['login']} <br>";
-                echo "{$post['user_name']} <br>";
-                echo "{$post['email']} <br>";
-                echo "{$post['profile_picture']} <br><br>";
+                require_once("post-template.php");
             }
         }  
     }
