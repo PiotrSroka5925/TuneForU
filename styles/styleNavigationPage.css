@@ -26,6 +26,23 @@
     font-weight: bold;
     padding-left: 20px;
 }
+
+.btn-profile:hover
+{
+    background-color: #1d1d1d;   
+}
+
+.btn-profile
+{
+    width: 190px;
+    border-radius: 25px;
+}
+
+.custom-color
+{
+    color: rgb(209, 18, 59);
+}
+
 .btn-custom {
     background-color: rgb(209, 18, 59);
     color: #fff;
@@ -38,4 +55,9 @@
 }
 .btn-custom:hover {
     background-color: gray;
+}
+
+.dropdown-item-bg:hover
+{
+    background-color: #1d1d1d;
 }
