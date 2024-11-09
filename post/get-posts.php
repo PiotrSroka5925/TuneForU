@@ -17,7 +17,7 @@
 
         if(isset($_POST['search']) && !empty($_POST['search'])){
             $search = $_POST['search'];    
-            $where = "WHERE title LIKE :search";
+            $where = "WHERE (title LIKE :search1 OR text LIKE :search2 OR login LIKE :search3 OR username LIKE :search4)";
         }
         
         $dateFilter = "";
@@ -53,7 +53,10 @@
         
         if (isset($search)){
             $searchTerm = "%" . $search . "%";
-            $query->bindValue(':search', $searchTerm, PDO::PARAM_STR);  
+            $query->bindValue(':search1', $searchTerm, PDO::PARAM_STR);  
+            $query->bindValue(':search2', $searchTerm, PDO::PARAM_STR);
+            $query->bindValue(':search3', $searchTerm, PDO::PARAM_STR);
+            $query->bindValue(':search4', $searchTerm, PDO::PARAM_STR);
         }
         $query->bindParam(':limit_min', $limit_min, PDO::PARAM_INT);
         $query->bindParam(':range_length', $range_length, PDO::PARAM_INT);
