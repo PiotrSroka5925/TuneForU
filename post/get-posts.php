@@ -15,9 +15,9 @@
 
         $where = "";
 
-        if(isset($_POST['search']) && $_POST['search'] != ''){
-            $search = $_POST['search'];
-            $where = 'WHERE title LIKE "%'.$search.'%"';
+        if(isset($_POST['search']) && !empty($_POST['search'])){
+            $search = $_POST['search'];    
+            $where = "WHERE title LIKE :search";
         }
         
         switch ($order){
@@ -32,10 +32,18 @@
                 $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
                 break;
         }
-        
-        $queryStr = "SELECT * FROM post JOIN user USING (user_id) $where $order LIMIT {$limit_min}, {$range_length}";  
-        //echo $queryStr;
+
+        $queryStr = "SELECT * FROM post JOIN user USING (user_id) $where $order LIMIT :limit_min, :range_length";  
+
         $query = $db->prepare($queryStr);
+        
+        if (isset($search)){
+            $searchTerm = "%" . $search . "%";
+            $query->bindValue(':search', $searchTerm, PDO::PARAM_STR);  
+        }
+        $query->bindParam(':limit_min', $limit_min, PDO::PARAM_INT);
+        $query->bindParam(':range_length', $range_length, PDO::PARAM_INT);
+
         $query->execute();
 
         $posts = $query->fetchAll();
