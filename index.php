@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    require_once("navigation.php");
+        require_once("navigation.php");
     ?>
 </body>
 </html>
