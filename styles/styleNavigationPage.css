@@ -1,9 +1,8 @@
 .sidebar {
-    height: 100vh;
-    
+    height: 100vh;    
     background-color: #000;
     color: #fff;
-    position: fixed;
+    /*position: fixed; */
     padding-top: 20px;
 }
 .nav-link {
@@ -92,6 +91,11 @@
         padding: 0px;
     }
 
+    .iconDiv
+    {
+        margin: auto;
+    }
+
     .bi
     {
         margin-left: auto;
@@ -106,7 +110,34 @@
         width: 40px;
         height: 40px;
         padding: 0px;
-    }
+    }    
+}
 
-    
+.modal
+{
+    background-color: rgba(255, 255, 255, 0.096);
+}
+
+.postTextArea
+{
+    border-color: transparent;
+    background-color: transparent;
+    border-width: 0px;
+    width: 100%;
+    height: 200px;
+    border: 0;
+    color: white;
+    outline: none;
+    resize: none;
+    scrollbar-color: transparent;
+}
+
+.postSubmitButton
+{
+    border: 2px solid rgb(65, 65, 65);
+    background-color: transparent;
+    color: rgb(209, 18, 59);
+    font-weight: bold;
+    transition-duration: 0.3s;
+    border-radius: 25px;
 }
