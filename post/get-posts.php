@@ -50,7 +50,7 @@
         
         if($posts !=null){  
             foreach($posts as $post){
-                require_once("post-template.php");
+                require("post-template.php");
             }
         }  
     }
