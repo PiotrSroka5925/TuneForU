@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/footerStyle.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-
-<body>
+    <?php
+    echo '
     <footer class="bg-black footerFont pt-4">
         <div class="container">
             <div class="row">
@@ -40,8 +29,8 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="fw-semibold">Contact</h5>
                     <ul class="list-unstyled text-lightgray">
-                        <li class="d-flex align-items-center"><i class="bi bi-geo-alt-fill fs-4 me-3"></i><p class="m-0">Adress</p></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-envelope-at-fill fs-4 me-3"></i><a class="m-0 text-decoration-none text-lightgray footerLink" href="mailto:email@example.com">email@example.com</a></li>
+                        <li class="d-flex align-items-center mb-2"><i class="bi bi-geo-alt-fill fs-4 me-3"></i><p class="m-0">Adress</p></li>
+                        <li class="d-flex align-items-center mb-2"><i class="bi bi-envelope-at-fill fs-4 me-3"></i><a class="m-0 text-decoration-none text-lightgray footerLink" href="mailto:email@example.com">email@example.com</a></li>
                         <li class="d-flex align-items-center"><i class="bi bi-telephone-fill fs-4 me-3"></i><p class="m-0">+48 123 456 789</p></li>
                     </ul>
                 </div>
@@ -50,6 +39,5 @@
         <hr class="m-0">
         <p class="text-center p-3">© 2024 TuneForU</p>
     </footer>
-</body>
-
-</html>
+    ';
+    ?>
