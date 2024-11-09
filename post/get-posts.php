@@ -13,6 +13,13 @@
             $limit_min = 0;
         }
 
+        $where = "";
+
+        if(isset($_POST['search']) && $_POST['search'] != ''){
+            $search = $_POST['search'];
+            $where = 'WHERE title LIKE "%'.$search.'%"';
+        }
+        
         switch ($order){
             case "date":
                 $order = "ORDER BY date DESC";
@@ -21,11 +28,14 @@
                 $order = "ORDER BY likes DESC";
                 break;
             default:
-                $order = "WHERE date >= NOW() - INTERVAL 30 DAY ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                $where .= (empty($where) ? "WHERE" : " AND") . " date >= NOW() - INTERVAL 30 DAY";
+                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
                 break;
         }
-
-        $query = $db->prepare("SELECT * FROM post JOIN user USING (user_id) $order LIMIT {$limit_min}, {$range_length}");
+        
+        $queryStr = "SELECT * FROM post JOIN user USING (user_id) $where $order LIMIT {$limit_min}, {$range_length}";  
+        //echo $queryStr;
+        $query = $db->prepare($queryStr);
         $query->execute();
 
         $posts = $query->fetchAll();
