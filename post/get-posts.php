@@ -20,17 +20,31 @@
             $where = "WHERE title LIKE :search";
         }
         
-        switch ($order){
+        $dateFilter = "";
+
+        switch ($order) {
             case "date":
                 $order = "ORDER BY date DESC";
                 break;
             case "likesAllTime":
                 $order = "ORDER BY likes DESC";
                 break;
-            default:
-                $where .= (empty($where) ? "WHERE" : " AND") . " date >= NOW() - INTERVAL 30 DAY";
+            case "popularity1Year":
+                $dateFilter = "date >= NOW() - INTERVAL 1 YEAR";
                 $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
                 break;
+            case "popularity7Days":
+                $dateFilter = "date >= NOW() - INTERVAL 7 DAY";
+                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                break;
+            default:
+                $dateFilter = "date >= NOW() - INTERVAL 30 DAY";
+                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                break;
+        }
+
+        if (!empty($dateFilter)) {
+            $where .= (empty($where) ? "WHERE" : " AND") . " " . $dateFilter;
         }
 
         $queryStr = "SELECT * FROM post JOIN user USING (user_id) $where $order LIMIT :limit_min, :range_length";  
