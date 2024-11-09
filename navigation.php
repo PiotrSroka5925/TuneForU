@@ -22,35 +22,47 @@ if(isset($_SESSION['logged_id'])){
 <link rel="stylesheet" href="styles/styleNavigationPage.css">
 
 <div class="sidebar bg-black">    
-    <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" class="img-fluid d-none d-md-block" width="200">                
+    <div class="mx-auto" style="max-width: 200px;">
+        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" alt="TuneForULogo" class="img-fluid d-none d-sm-block">        
+    </div>        
+           
+
     <ul class="nav flex-column p-2">
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-house-door-fill"></i> 
+            <a class="nav-link d-flex fs-5 align-items-center" href="#">
+                <div class="d-flex align-items-center" style="width: 40px;">
+                    <i class="bi bi-house-door-fill fs-3"></i> 
+                </div>
                 <span class="d-none d-sm-inline">Główna</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-search"></i> 
+            <a class="nav-link d-flex fs-5 align-items-center" href="#">
+                <div class="d-flex align-items-center" style="width: 40px;">
+                    <i class="bi bi-search fs-3"></i> 
+                </div>                
                 <span class="d-none d-sm-inline">Przeglądaj</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-bell-fill"></i> 
+            <a class="nav-link d-flex align-items-center fs-5" href="#">
+                <div class="d-flex align-items-center" style="width: 40px;">
+                    <i class="bi bi-bell-fill fs-3"></i> 
+                </div>
                 <span class="d-none d-sm-inline">Powiadomienia</span>
             </a> 
         </li>
-        <li class="nav-item m-0 bg-black <?php if(!isset($_SESSION['logged_id'])) echo "d-none" ?>">            
-            <div class="dropdown d-flex">
-                <button class="btn btn-profile text-white d-flex align-items-center border border-0 mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture']?>" class="img-fluid rounded-circle me-2" width="50" height="50" alt="">
+        <?php if(isset($_SESSION['logged_id']))
+        echo '
+            <li class="nav-item bg-black ">            
+            <button class="btn btn-profile text-white d-flex align-items-center border border-0 mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture'].'" alt="ProfilePicture" class="img-fluid rounded-circle me-2" width="40" height="40" alt="">
                     <div class="d-none d-sm-flex flex-column text-start">
-                        <span><?=$user['user_name']?></span>
-                        <span>@<?=$user['login']?></span>
+                        <span class="fw-bold">'.$user['user_name'].'</span>
+                        <span class="text-secondary">@'.$user['login'].'</span>
                     </div>
                 </button>
+            <div class="dropdown align-items-center d-flex">                
                 <ul class="dropdown-menu w-100 m-0 rounded-3 border border-white bg-black" aria-labelledby="userDropdown">                   
                     <li>
                         <a class="dropdown-item dropdown-item-bg text-light " href="profile.php">
@@ -65,17 +77,19 @@ if(isset($_SESSION['logged_id'])){
                 </ul>
             </div>                    
         </li>  
+        ';
+        ?>        
         <?php if(!isset($_SESSION['logged_id']))    
         echo '
         <li class="nav-item">
             <a href="register.php">
-                <button class="btn btn-custom text-white ms-3 fw-bold align-items-center" data-bs-toggle="modal"><i class="bi bi-person-fill navIcon"></i> <span class="navWriting">Zaloguj się</span></button>
+                <button class="btn btn-custom text-white fw-bold align-items-center" type="button" data-bs-toggle="modal"><i class="bi bi-person-fill navIcon"></i> <span class="navWriting">Zaloguj się</span></button>
             </a>
         </li>   
         ';        
         ?>  
         <li class="nav-item">
-            <button class="btn btn-custom text-white ms-3 fw-bold align-items-center <?php if(!isset($_SESSION['logged_id'])) echo "d-none"?>" data-bs-toggle="modal">
+            <button class="btn btn-custom text-white  fw-bold align-items-center <?php if(!isset($_SESSION['logged_id'])) echo "d-none"?>" data-bs-toggle="modal">
                 <i class="bi bi-pencil-fill navIcon"></i>
                 <span class="navWriting">Post</span>
             </button>
