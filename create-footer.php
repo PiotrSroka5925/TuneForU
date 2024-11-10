@@ -1,5 +1,6 @@
     <?php
     echo '
+    <link rel="stylesheet" href="styles/footerStyle.css">
     <footer class="bg-black footerFont pt-4">
         <div class="container">
             <div class="row">
