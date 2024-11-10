@@ -1,11 +1,9 @@
     <link rel="stylesheet" href="<?= $protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/footerStyle.css"?>">
     <?php
     echo '
-    <link rel="stylesheet" href="styles/footerStyle.css">
     <footer class="bg-black footerFont pt-4">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-8 mb-4">
                     <img src="img/logo_white_footer.png" class="img-fluid">
 
