@@ -86,7 +86,73 @@
             </div>
         </div>
         <div class="col-md-3">
-            additional content
+            <div class="container">
+                <div class="row mt-2">
+                    <div class="input-group rounded">
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <span class="input-group-text border-0 bg-transparent" id="search-addon">
+                            <i class="bi bi-search"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-4 recommendations">
+                    <h4>Who to follow</h4>
+                    <div class="container">
+                        <div class="row mt-4">
+                            <div class="d-flex align-items-center">
+                                <img src="#" alt="profile-image">
+                                <div class="container">
+                                    <div class="row">
+                                        <span><b>Username</b></span>
+                                    </div>
+                                    <div class="row">
+                                        <span style="color: grey;">@login</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-light">follow</button>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="d-flex align-items-center">
+                                <img src="#" alt="profile-image">
+                                <div class="container">
+                                    <div class="row">
+                                        <span><b>Username</b></span>
+                                    </div>
+                                    <div class="row">
+                                        <span style="color: grey;">@login</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-light">follow</button>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="d-flex align-items-center">
+                                <img src="#" alt="profile-image">
+                                <div class="container">
+                                    <div class="row">
+                                        <span><b>Username</b></span>
+                                    </div>
+                                    <div class="row">
+                                        <span style="color: grey;">@login</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-light">follow</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4 recommendations">
+                    <h4>Trendings</h4>
+                    <ul class="hashtagList">
+                        <li>#hashtag</li>
+                        <li>#hashtag</li>
+                        <li>#hashtag</li>
+                        <li>#hashtag</li>
+                        <li>#hashtag</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 

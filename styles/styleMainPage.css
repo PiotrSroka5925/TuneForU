@@ -28,3 +28,31 @@
     font-size: small;
     margin-left: 5px;
 }
+
+.bi-search
+{
+    color: white;
+}
+
+.recommendations
+{
+    margin-left: 0.001em !important;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgb(68, 68, 68);
+    color: white;
+}
+
+.hashtagList
+{
+    list-style-type: none;
+    color: grey;
+}
+.hashtagList li
+{
+    margin-top: 10px;
+}
+.hashtagList li:hover
+{
+    text-decoration: underline;
+}
