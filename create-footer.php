@@ -5,8 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mb-4">
-                    <img src="img/logo_white_footer.png" class="img-fluid">
-
+                    <img src="img/logo_white_footer.png" class="img-fluid" alt="logo">
                     <p class="mt-2 w-75">Świat muzyki w jednym miejscu! Znajdź utwory, które inspirują, dziel się swoimi odkryciami i poznaj pasje innych.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-decoration-none text-white footerLink"><i class="bi bi-facebook fs-5"></i></a>
