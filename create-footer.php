@@ -1,3 +1,4 @@
+    <link rel="stylesheet" href="<?= $protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/footerStyle.css"?>">
     <?php
     echo '
     <link rel="stylesheet" href="styles/footerStyle.css">
@@ -30,9 +31,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="fw-semibold">Kontakt</h5>
                     <ul class="list-unstyled text-lightgray">
-                        <li class="d-flex align-items-center mb-2"><i class="bi bi-geo-alt-fill fs-4 me-3"></i><p class="m-0">Adres</p></li>
-                        <li class="d-flex align-items-center mb-2"><i class="bi bi-envelope-at-fill fs-4 me-3"></i><a class="m-0 text-decoration-none text-lightgray footerLink" href="mailto:email@example.com">email@example.com</a></li>
-                        <li class="d-flex align-items-center"><i class="bi bi-telephone-fill fs-4 me-3"></i><p class="m-0">+48 123 456 789</p></li>
+                        <li class="d-flex align-items-center mb-2"><i class="bi bi-geo-alt-fill fs-5 me-3"></i><p class="m-0">Adres</p></li>
+                        <li class="d-flex align-items-center mb-2"><i class="bi bi-envelope-at-fill fs-5 me-3"></i><a class="m-0 text-decoration-none text-lightgray footerLink" href="mailto:email@example.com">email@example.com</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-telephone-fill fs-5 me-3"></i><p class="m-0">+48 123 456 789</p></li>
                     </ul>
                 </div>
             </div>
