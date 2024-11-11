@@ -17,7 +17,7 @@
 
         if(isset($_POST['search']) && !empty($_POST['search'])){
             $search = $_POST['search'];    
-            $where = "WHERE (title LIKE :search1 OR text LIKE :search2 OR login LIKE :search3 OR username LIKE :search4)";
+            $where = "WHERE (title LIKE :search1 OR text LIKE :search2 OR login LIKE :search3 OR user_name LIKE :search4)";
         }
         
         $dateFilter = "";

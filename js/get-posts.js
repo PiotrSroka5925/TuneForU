@@ -1,7 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
     let range = 1;
-    const order = "date";
+    let order = "date";
     const postsContainer = document.getElementById("postsContainer");
+
+    const searchBar = document.getElementById("searchBar");
+    let search = searchBar.value;
+
+    searchBar.addEventListener("change", () => {
+        range = 1;
+        search = searchBar.value;
+        updateSearchParam(search);
+        postsContainer.innerHTML = "";
+        getPosts();
+    }, false)
 
     async function getPosts() {
         try {
@@ -10,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 url: url,
                 type: 'post',
                 cache: false,
-                data: { range, order }
+                data: { range, order, search }
             });
 
             if(response){
@@ -49,3 +60,15 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ładowanie pierwszych wpisów po załadowaniu strony
     getPosts();
 });
+
+function updateSearchParam(newSearchValue) {
+    const url = new URL(window.location.href);
+
+    if(newSearchValue.length > 0){
+        url.searchParams.set('search', newSearchValue);
+    }
+    else
+        url.searchParams.delete('search');
+    
+    history.replaceState(null, '', url);
+}
