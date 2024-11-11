@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     searchBar.addEventListener("change", () => {
         range = 1;
         search = searchBar.value;
+        updateSearchParam(search);
         postsContainer.innerHTML = "";
         getPosts();
     }, false)
@@ -59,3 +60,15 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ładowanie pierwszych wpisów po załadowaniu strony
     getPosts();
 });
+
+function updateSearchParam(newSearchValue) {
+    const url = new URL(window.location.href);
+
+    if(newSearchValue.length > 0){
+        url.searchParams.set('search', newSearchValue);
+    }
+    else
+        url.searchParams.delete('search');
+    
+    history.replaceState(null, '', url);
+}
