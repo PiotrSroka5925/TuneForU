@@ -59,18 +59,45 @@
             $_SESSION['pass2_error'] = "Hasła nie są identyczne!";
         }
 
+        $profile_picture = "/img/profiles/default.jpg";
+        if(isset($_FILES['profile_picture'])){
+            if($_FILES['profile_picture']['size'] / 1048576 > 2){
+                $success = false;
+                $_SESSION['profile_picture_error'] = "Maksymalny rozmiar pliku to 2MB!";
+            }else{
+                $tmpFilePath = $_FILES['profile_picture']['tmp_name'];
+                if($tmpFilePath != ""){
+                    $fileName = $_FILES['profile_picture']['name'];
+                    $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+                    $extensions = array("xbm", "tif", "pjp", "apng", "svgz", "jpg", "jpeg", "tiff", "jfif", "webp", "png", "bmp", "pjpeg", "avif");
+                    if (in_array($extension, $extensions)) {
+                        $dir = $_SERVER['DOCUMENT_ROOT'].'/tuneforu/img/profiles/';
+                        if ($success && move_uploaded_file($tmpFilePath, $dir . basename($fileName))) {
+                            $profile_picture = "/img/profiles/".$fileName;
+                        }
+                    }
+                    else{
+                        $success = false;
+                        $_SESSION['profile_picture_error'] = "Nieprawidłowy typ pliku!";
+                    }  
+                }
+            }
+        }
+
         //REJESTRACJA
         if($success){
-            $query = $db->prepare("INSERT INTO user (login, user_name, password, email) VALUES (:login, :user_name, :password, :email)");
+            $query = $db->prepare("INSERT INTO user (login, user_name, password, email, profile_picture) VALUES (:login, :user_name, :password, :email, :profile_picture)");
             $query->bindValue(':login', $login, PDO::PARAM_STR);
             $query->bindValue(':user_name', $login, PDO::PARAM_STR);
             //Hash hasła
             $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
             $query->bindValue(':password', $pass_hash, PDO::PARAM_STR);
             $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->bindValue(':profile_picture', $profile_picture, PDO::PARAM_STR);
             $query->execute();
 
             header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/register.php'); 
+            exit();
         }
     }
 ?>
@@ -98,7 +125,60 @@
         </symbol>
     </svg>
 
-    <div class="container-fluid" id="main">
+    <div class="container-fluid position-relative" id="main">
+        <div id="errorDiv" class="position-absolute top-0 start-50 translate-middle-x">
+            <?php 
+                if(isset($_SESSION['login2_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['login2_error'];
+                    echo '</div>';  
+                    unset($_SESSION['login2_error']);
+                }
+                if(isset($_SESSION['pass_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['pass_error'];
+                    echo '</div>';  
+                    unset($_SESSION['pass_error']);
+                }
+                if(isset($_SESSION['pass2_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['pass2_error'];
+                    echo '</div>';  
+                    unset($_SESSION['pass2_error']);
+                }
+                if(isset($_SESSION['login_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['login_error'];
+                    echo '</div>';  
+                    unset($_SESSION['login_error']);
+                }
+                if(isset($_SESSION['email_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['email_error'];
+                    echo '</div>';  
+                    unset($_SESSION['email_error']);
+                }
+                if(isset($_SESSION['profile_picture_error']))
+                {
+                    echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
+                    echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+                    echo $_SESSION['profile_picture_error'];
+                    echo '</div>';  
+                    unset($_SESSION['profile_picture_error']);
+                }
+            ?>
+        </div>
+
         <div class="row gx-5 m-0" id="row">
             <div class="col-sm-12 col-md-6">
                 <div class="d-flex h-100 align-items-center justify-content-center imageColumn">
@@ -115,18 +195,7 @@
                         <input type="password" name="password" placeholder="Hasło">
                         <input type="submit" value="Zaloguj się">
                     </form>
-
-                    <?php 
-                        if(isset($_SESSION['login2_error']))
-                        {
-                            echo '<div class="alert alert-warning d-flex align-items-center mt-3 position-absolute top-0 start-50 translate-middle-x" role="alert">';
-                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                            echo $_SESSION['login2_error'];
-                            echo '</div>';  
-                            unset($_SESSION['login2_error']);
-                        }
-                    ?>
-
+                    
                     <div class="pt-5">
                         <p class="text-white">Nie masz konta?</p>
                         <button type="button" class="registerButton" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -145,48 +214,24 @@
                                     </button>
                                 </div>
                                 <div class="modal-body d-flex flex-column align-items-center justify-content-center">
-                                    <form method="POST" class="loginForm">
+                                    <form method="POST" class="loginForm" enctype="multipart/form-data">
                                         <input type="text" name="login" placeholder="Login">
                                         <input type="email" name="email" placeholder="E-mail">
                                         <input type="password" name="password1" placeholder="Hasło">
                                         <input type="password" name="password2" placeholder="Potwierdź Hasło">
+                                        <div class="d-flex align-items-center mt-3" id="profilePictureForm">
+                                            <img id="profilePicturePreview" src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/profiles/default.jpg"?>" alt="Domyślne zdjęcie profilowe" class="img-fluid rounded-circle">
+                                            
+                                            <div class="d-flex flex-column ms-2">                                 
+                                                <label for="profile_picture" class="custom-file-upload">
+                                                    <input type="file" name="profile_picture" id="profile_picture" accept="image/*">
+                                                    Wybierz plik
+                                                </label>
+                                                <span id="profilePictureFileName">Nie wybrano pliku</span>
+                                            </div>
+                                        </div>
                                         <input type="submit" value="Zarejestruj się">
                                     </form>
-
-                                    <?php 
-                                        if(isset($_SESSION['pass_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['pass_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['pass_error']);
-                                        }
-                                        if(isset($_SESSION['pass2_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['pass2_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['pass2_error']);
-                                        }
-                                        if(isset($_SESSION['login_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['login_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['login_error']);
-                                        }
-                                        if(isset($_SESSION['email_error']))
-                                        {
-                                            echo '<div class="alert alert-warning d-flex align-items-center mt-3" role="alert">';
-                                            echo '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
-                                            echo $_SESSION['email_error'];
-                                            echo '</div>';  
-                                            unset($_SESSION['email_error']);
-                                        }
-                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +242,7 @@
     </div>
 
     
-    
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/register-profile-picture.js"?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
