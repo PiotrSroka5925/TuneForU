@@ -10,147 +10,149 @@
 </head>
 <body class="bg-black">
     <div class="container d-flex">
-        <div class="col-md-3 menu">
-            <img src="img/logo_white.png" alt="logo">
-            <div>
-                <ul>
-                    <a href="#"><li>home</li></a>
-                    <a href="#"><li>following</li></a>
-                    <a href="#"><li>notifications</li></a>
-                    <a href="#"><li>profile</li></a>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-6 text-center postBox">
-            <div class="container postContainer">
-                <div class="row container postHeader">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-sm-3 text-center">
-                            <img src="#" alt="profile_pic" width="60" height="60">
-                        </div>
-                        <div class="col-sm-6 d-flex justify-content-evenly align-items-baseline">
-                            <p class="username">username</p>
-                            <p class="login">@user login |</p>
-                            <p class="pe-5 date">post date</p>
-                        </div>
-                        <div class="col-sm-3 text-end">
-                            <i class="bi bi-three-dots"></i>
-                        </div>
-                    </div>
-
-                    <div class="row postTitle">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    </div>  
-                </div>
-
-                <div class="row postContent text-start mt-4">
-                    <p class="long-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Libero ut facilis laboriosam consectetur iste! 
-                        Beatae est et placeat veniam vitae doloremque totam 
-                        distinctio repellendus recusandae sapiente, assumenda, 
-                        sequi nulla facere?
-                    </p>
-                    <script>
-                        var paragraph = document.getElementsByClassName("long-text")[0];
-                        var text = paragraph.innerHTML;
-                        paragraph.innerHTML = "";
-                        var words = text.split(" ");
-                        for (i = 0; i < 70; i++) {
-                            paragraph.innerHTML += words[i] + " ";
-                        }
-                        paragraph.innerHTML += "...";
-                    </script>
-                </div>
-
-                <div class="row postImages mt-3">
-                    <div class="d-flex justify-content-around">
-                        <img src="#" alt="post_image">
-                        <img src="#" alt="post_image">
-                        <img src="#" alt="post_image">
-                    </div>
-                </div>
-
-                <div class="row my-3">
-                    <div class="d-flex justify-content-evenly">
-                        <div class="interactions">
-                            <i class="bi bi-hand-thumbs-up"></i><span>0</span>
-                        </div>
-                        <div class="interactions">
-                            <i class="bi bi-chat"></i><span>0</span>
-                        </div>
-                        <div class="interactions">
-                            <i class="bi bi-bar-chart"></i><span>0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="container">
-                <div class="row mt-2">
-                    <div class="input-group rounded">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <span class="input-group-text border-0 bg-transparent" id="search-addon">
-                            <i class="bi bi-search"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="row mt-4 recommendations">
-                    <h4>Who to follow</h4>
-                    <div class="container">
-                        <div class="row mt-4">
-                            <div class="d-flex align-items-center">
-                                <img src="#" alt="profile-image">
-                                <div class="container">
-                                    <div class="row">
-                                        <span><b>Username</b></span>
-                                    </div>
-                                    <div class="row">
-                                        <span style="color: grey;">@login</span>
-                                    </div>
-                                </div>
-                                <button class="btn btn-light">follow</button>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="d-flex align-items-center">
-                                <img src="#" alt="profile-image">
-                                <div class="container">
-                                    <div class="row">
-                                        <span><b>Username</b></span>
-                                    </div>
-                                    <div class="row">
-                                        <span style="color: grey;">@login</span>
-                                    </div>
-                                </div>
-                                <button class="btn btn-light">follow</button>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="d-flex align-items-center">
-                                <img src="#" alt="profile-image">
-                                <div class="container">
-                                    <div class="row">
-                                        <span><b>Username</b></span>
-                                    </div>
-                                    <div class="row">
-                                        <span style="color: grey;">@login</span>
-                                    </div>
-                                </div>
-                                <button class="btn btn-light">follow</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4 recommendations">
-                    <h4>Trendings</h4>
-                    <ul class="hashtagList">
-                        <li>#hashtag</li>
-                        <li>#hashtag</li>
-                        <li>#hashtag</li>
-                        <li>#hashtag</li>
-                        <li>#hashtag</li>
+        <div class="row">
+            <div class="col-md-3 menu">
+                <img src="img/logo_white.png" alt="logo">
+                <div>
+                    <ul>
+                        <a href="#"><li>home</li></a>
+                        <a href="#"><li>following</li></a>
+                        <a href="#"><li>notifications</li></a>
+                        <a href="#"><li>profile</li></a>
                     </ul>
+                </div>
+            </div>
+            <div class="col-md-6 text-center postBox">
+                <div class="container postContainer">
+                    <div class="row container postHeader">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-sm-3 text-center">
+                                <img src="#" alt="profile_pic" width="60" height="60">
+                            </div>
+                            <div class="col-sm-6 d-flex justify-content-evenly align-items-baseline">
+                                <p class="username">username</p>
+                                <p class="login">@user login |</p>
+                                <p class="pe-5 date">post date</p>
+                            </div>
+                            <div class="col-sm-3 text-end">
+                                <i class="bi bi-three-dots"></i>
+                            </div>
+                        </div>
+
+                        <div class="row postTitle">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        </div>  
+                    </div>
+
+                    <div class="row postContent text-start mt-4">
+                        <p class="long-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Libero ut facilis laboriosam consectetur iste! 
+                            Beatae est et placeat veniam vitae doloremque totam 
+                            distinctio repellendus recusandae sapiente, assumenda, 
+                            sequi nulla facere?
+                        </p>
+                        <script>
+                            var paragraph = document.getElementsByClassName("long-text")[0];
+                            var text = paragraph.innerHTML;
+                            paragraph.innerHTML = "";
+                            var words = text.split(" ");
+                            for (i = 0; i < 70; i++) {
+                                paragraph.innerHTML += words[i] + " ";
+                            }
+                            paragraph.innerHTML += "...";
+                        </script>
+                    </div>
+
+                    <div class="row postImages mt-3">
+                        <div class="d-flex justify-content-around">
+                            <img src="#" alt="post_image">
+                            <img src="#" alt="post_image">
+                            <img src="#" alt="post_image">
+                        </div>
+                    </div>
+
+                    <div class="row my-3">
+                        <div class="d-flex justify-content-evenly">
+                            <div class="interactions">
+                                <i class="bi bi-hand-thumbs-up"></i><span>0</span>
+                            </div>
+                            <div class="interactions">
+                                <i class="bi bi-chat"></i><span>0</span>
+                            </div>
+                            <div class="interactions">
+                                <i class="bi bi-bar-chart"></i><span>0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="container">
+                    <div class="row mt-2">
+                        <div class="input-group rounded">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <span class="input-group-text border-0 bg-transparent" id="search-addon">
+                                <i class="bi bi-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mt-4 recommendations">
+                        <h4>Who to follow</h4>
+                        <div class="container">
+                            <div class="row mt-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="#" alt="profile-image">
+                                    <div class="container">
+                                        <div class="row">
+                                            <span><b>Username</b></span>
+                                        </div>
+                                        <div class="row">
+                                            <span style="color: grey;">@login</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-light">follow</button>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="#" alt="profile-image">
+                                    <div class="container">
+                                        <div class="row">
+                                            <span><b>Username</b></span>
+                                        </div>
+                                        <div class="row">
+                                            <span style="color: grey;">@login</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-light">follow</button>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="#" alt="profile-image">
+                                    <div class="container">
+                                        <div class="row">
+                                            <span><b>Username</b></span>
+                                        </div>
+                                        <div class="row">
+                                            <span style="color: grey;">@login</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-light">follow</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4 recommendations">
+                        <h4>Trendings</h4>
+                        <ul class="hashtagList">
+                            <li>#hashtag</li>
+                            <li>#hashtag</li>
+                            <li>#hashtag</li>
+                            <li>#hashtag</li>
+                            <li>#hashtag</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
