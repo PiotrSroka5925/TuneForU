@@ -46,6 +46,56 @@
                 </span>
             </div>
 
+            <?php 
+                $data = json_decode($post['data']);
+                if($data != null){
+                    echo '<div class="postImages my-2 pe-3" style="max-width: 550px;">';
+                        echo '<div class="row g-2">';
+                            $imageCount = count($data);
+    
+                            if ($imageCount === 1) {
+                                echo '<div class="col-12 d-flex align-items-center">';
+                                echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $data[0] . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
+                                echo '</div>';
+                            } elseif ($imageCount === 2) {
+                                foreach ($data as $url) {
+                                    echo '<div class="col-6 d-flex align-items-center">';
+                                    echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $url . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
+                                    echo '</div>';
+                                }
+                            } elseif ($imageCount === 3) {
+                                echo '<div class="col-6 d-flex flex-column">';
+                                echo '<img style="object-fit: cover;" src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $data[0] . '" alt="post_image" class="img-fluid rounded h-100 " onclick="displayFullPageImage(this)">';
+                                echo '</div>';
+                                
+                                echo '<div class="col-6">';
+                                echo '<div class="row g-2">';
+                                
+                                echo '<div class="col-12 d-flex align-items-center">';
+                                echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $data[1] . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
+                                echo '</div>';
+                                
+                                echo '<div class="col-12 d-flex align-items-center">';
+                                echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $data[2] . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
+                                echo '</div>';
+                                
+                                echo '</div>';
+                                echo '</div>';
+                            } elseif($imageCount > 3){
+                                for($i = 0; $i < 4; $i++){
+                                    echo '<div class="col-6 d-flex align-items-center">';
+                                    echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $data[$i] . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
+                                    echo '</div>';
+                                }
+                            }
+                        echo '</div>';
+                            if($imageCount > 4){
+                                echo '<p class="text-end text-secondary">+' . $imageCount-4 . ' załączniki  <i class="bi bi-paperclip"></i></p>';
+                            }
+                    echo '</div>';   
+                }                     
+            ?>
+
             <div class="my-3">
                 <div class="d-flex justify-content-evenly">
                     <div class="interactions">
