@@ -45,6 +45,37 @@
                     ?>
                 </span>
             </div>
+
+            <div class="my-3">
+                <div class="d-flex justify-content-evenly">
+                    <div class="interactions">
+                        <i class="bi bi-hand-thumbs-up"></i><span><?=$post['likes']?></span>
+                    </div>
+                    <div class="interactions">
+                        <i class="bi bi-chat"></i><span>0</span>
+                    </div>
+                    <div class="interactions">
+                        <?php
+                            $postDate = $post['date'];
+
+                            $postDateTime = new DateTime($postDate);
+                            $now = new DateTime();
+
+                            $interval = $now->diff($postDateTime);
+                            $hoursDiff = ($interval->days * 24) + $interval->h + ($interval->i / 60) + ($interval->s / 3600);
+
+                            if ($hoursDiff > 0) {
+                                $popularity = $post['likes'] / $hoursDiff;
+                            } else {
+                                $popularity = 0; 
+                            }
+
+                            $popularity;
+                            ?>
+                        <i class="bi bi-bar-chart"></i><span><?=round($popularity * 100, 2)?></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
