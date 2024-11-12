@@ -14,7 +14,7 @@
         <div style="width: 55px;"> 
             <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55" height="55">
         </div>
-        <div class="w-100 mx-2">
+        <div class="px-2" style="width: calc(100% - 55px) !important;">
             <div class="postHeader">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
@@ -94,37 +94,36 @@
                             }
                     echo '</div>';   
                 }                     
-            ?>
+            ?> 
+        </div>
+    </div>
+    <div class="my-3">
+        <div class="d-flex justify-content-evenly">
+            <div class="interactions">
+                <i class="bi bi-hand-thumbs-up"></i><span><?=$post['likes']?></span>
+            </div>
+            <div class="interactions">
+                <i class="bi bi-chat"></i><span>0</span>
+            </div>
+            <div class="interactions">
+                <?php
+                    $postDate = $post['date'];
 
-            <div class="my-3">
-                <div class="d-flex justify-content-evenly">
-                    <div class="interactions">
-                        <i class="bi bi-hand-thumbs-up"></i><span><?=$post['likes']?></span>
-                    </div>
-                    <div class="interactions">
-                        <i class="bi bi-chat"></i><span>0</span>
-                    </div>
-                    <div class="interactions">
-                        <?php
-                            $postDate = $post['date'];
+                    $postDateTime = new DateTime($postDate);
+                    $now = new DateTime();
 
-                            $postDateTime = new DateTime($postDate);
-                            $now = new DateTime();
+                    $interval = $now->diff($postDateTime);
+                    $hoursDiff = ($interval->days * 24) + $interval->h + ($interval->i / 60) + ($interval->s / 3600);
 
-                            $interval = $now->diff($postDateTime);
-                            $hoursDiff = ($interval->days * 24) + $interval->h + ($interval->i / 60) + ($interval->s / 3600);
+                    if ($hoursDiff > 0) {
+                        $popularity = $post['likes'] / $hoursDiff;
+                    } else {
+                        $popularity = 0; 
+                    }
 
-                            if ($hoursDiff > 0) {
-                                $popularity = $post['likes'] / $hoursDiff;
-                            } else {
-                                $popularity = 0; 
-                            }
-
-                            $popularity;
-                            ?>
-                        <i class="bi bi-bar-chart"></i><span><?=round($popularity * 10)?></span>
-                    </div>
-                </div>
+                    $popularity;
+                    ?>
+                <i class="bi bi-bar-chart"></i><span><?=round($popularity * 10)?></span>
             </div>
         </div>
     </div>
