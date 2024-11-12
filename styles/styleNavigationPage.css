@@ -19,7 +19,9 @@
 }
 .nav-item {
     margin-bottom: 15px;
+    width: 100%;
 }
+
 .logo {
     font-size: 2rem;
     font-weight: bold;
@@ -91,6 +93,23 @@
         padding: 0px;
     }
 
+    .btn-profile
+    {
+        margin-left: auto;
+        margin-right: auto;  
+        display: block;
+        width: 40px;
+        height: 40px;
+        padding: 0px;
+    }    
+
+    .nav-item a, #navSearchButton{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 769px) {
     .iconDiv
     {
         margin: auto;
@@ -102,15 +121,10 @@
         margin-right: auto;        
     }
 
-    .btn-profile
-    {
-        margin-left: auto;
-        margin-right: auto;  
-        display: block;
-        width: 40px;
-        height: 40px;
-        padding: 0px;
-    }    
+    .nav-item a, #navSearchButton{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .modal
