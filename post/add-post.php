@@ -13,7 +13,7 @@
         }
 
         $text = $_POST['text'];
-        if(strlen($title) < 3 || strlen($title) > 500){
+        if(strlen($text) < 3 || strlen($text) > 500){
             $success = false;
             $_SESSION['text_error'] = "Treść musi mieć od 3 do 500 znaków!";
         }
