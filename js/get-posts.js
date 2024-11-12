@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let range = 1;
     let order = "date";
+    let offset = 0;
     const postsContainer = document.getElementById("postsContainer");
 
     const searchBar = document.getElementById("searchBar");
@@ -21,15 +22,34 @@ document.addEventListener("DOMContentLoaded", function() {
                 url: url,
                 type: 'post',
                 cache: false,
-                data: { range, order, search }
+                dataType: 'json',
+                data: { range, order, search, offset}
             });
 
-            if(response){
-                postsContainer.innerHTML += response;
-                createLoadMoreButton(true);
-            }
-            else{
-                alert("No posts to load!");
+            if (response) {
+                const { rangeLength, count, content } = response;
+            
+                if (count > 0) {
+                    if(count < rangeLength){
+                        offset += count;
+                    }
+                    else{
+                        offset = 0;
+                        range += 1;
+                    }
+                        
+                    console.log(`Number of posts: ${count}`);
+                    console.log(`Range lenght: ${rangeLength}`);
+                    console.log(`Offset: ${offset}`);
+                    console.log(`Range: ${range}`);
+                    postsContainer.innerHTML += content;
+                    createLoadMoreButton(true);
+                }
+                else{
+                    alert("No more posts to load!");
+                }
+            } else {
+                alert("Failed to load posts.");
             }
             
         } catch (error) {
@@ -48,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 button.id = "loadMoreButton";
                 button.textContent = "Załaduj więcej";
                 button.addEventListener("click", () => {
-                    range += 1;
                     getPosts();
                 });
     

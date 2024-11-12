@@ -3,14 +3,15 @@
 
     if(isset($_POST['range'])){
         $range = filter_input(INPUT_POST, 'range', FILTER_VALIDATE_INT);
+        $offset = filter_input(INPUT_POST, 'offset', FILTER_VALIDATE_INT);
         $order = filter_input(INPUT_POST, 'order');
 
         $range_length = 5;
 
         if ($range && $range > 0) {
-            $limit_min = ($range - 1) * $range_length;
+            $limit_min = ($range - 1) * $range_length + $offset;
         } else {
-            $limit_min = 0;
+            $limit_min = 0 + $offset;
         }
 
         $where = "";
@@ -35,11 +36,11 @@
                 break;
             case "popularity7Days":
                 $dateFilter = "date >= NOW() - INTERVAL 7 DAY";
-                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                $order = "ORDER BY likes / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
                 break;
             default:
                 $dateFilter = "date >= NOW() - INTERVAL 30 DAY";
-                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                $order = "ORDER BY likes / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
                 break;
         }
 
@@ -48,7 +49,6 @@
         }
 
         $queryStr = "SELECT * FROM post JOIN user USING (user_id) $where $order LIMIT :limit_min, :range_length";  
-
         $query = $db->prepare($queryStr);
         
         if (isset($search)){
@@ -65,10 +65,20 @@
 
         $posts = $query->fetchAll();
         
-        if($posts !=null){  
-            foreach($posts as $post){
+        $response = [
+            'rangeLength' => $range_length,
+            'count' => count($posts),
+            'content' => ''
+        ];
+        
+        if ($posts != null) {
+            ob_start();
+            foreach ($posts as $post) {
                 require("post-template.php");
             }
-        }  
+            $response['content'] = ob_get_clean();
+        }
+        
+        echo json_encode($response);
     }
 ?>
