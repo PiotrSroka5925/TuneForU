@@ -38,12 +38,19 @@ if(isset($_SESSION['logged_id'])){
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link d-flex fs-5 align-items-center" href="#">
+            <button class="nav-link d-flex fs-5 align-items-center w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="d-flex align-items-center iconDiv" style="width: 40px;">
                     <i class="bi bi-search fs-3"></i> 
                 </div>                
                 <span class="d-none d-sm-inline">Przeglądaj</span>
-            </a>
+            </button>
+            <div class="dropdown align-items-center d-flex">                
+                <ul class="dropdown-menu w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
+                    <li>                        
+                       <input class="rounded-3 ms-2" type="search" <?php  if(isset($_GET['search'])) echo 'value="'.$_GET['search'].'"' ?>  id="searchBar">
+                    </li>                                                         
+                </ul>
+            </div>    
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center fs-5" href="#">
@@ -57,14 +64,14 @@ if(isset($_SESSION['logged_id'])){
         echo '
             <li class="nav-item bg-black ">            
             <button class="btn btn-profile text-white d-flex align-items-center border border-0 mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture'].'" alt="ProfilePicture" class="img-fluid rounded-circle me-2" width="40" height="40" alt="">
-                    <div class="d-none d-sm-flex flex-column text-start">
-                        <span class="fw-bold">'.$user['user_name'].'</span>
-                        <span class="text-secondary">@'.$user['login'].'</span>
-                    </div>
-                </button>
+                <img src="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture'].'" alt="ProfilePicture" class="img-fluid rounded-circle me-2" width="40" height="40" alt="">
+                <div class="d-none d-sm-flex flex-column text-start">
+                    <span class="fw-bold">'.$user['user_name'].'</span>
+                    <span class="text-secondary">@'.$user['login'].'</span>
+                </div>
+            </button>
             <div class="dropdown align-items-center d-flex">                
-                <ul class="dropdown-menu w-100 m-0 rounded-3 border border-white bg-black" aria-labelledby="userDropdown">                   
+                <ul class="dropdown-menu w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
                     <li>
                         <a class="dropdown-item dropdown-item-bg text-light " href="profile.php">
                             Profil
@@ -90,7 +97,7 @@ if(isset($_SESSION['logged_id'])){
         ';        
         ?>  
         <li class="nav-item">
-            <button class="btn btn-custom text-white  fw-bold align-items-center <?php if(!isset($_SESSION['logged_id'])) echo "d-none"?>" data-bs-toggle="modal" data-bs-target="#postModal">
+            <button class="btn btn-custom text-white fw-bold align-items-center <?php if(!isset($_SESSION['logged_id'])) echo "d-none"?>" data-bs-toggle="modal" data-bs-target="#postModal">
                 <i class="bi bi-pencil-fill navIcon"></i>
                 <span class="navWriting">Post</span>
             </button>
@@ -107,25 +114,23 @@ if(isset($_SESSION['logged_id'])){
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form method="POST" action="post/add-post.php" class="d-flex flex-column" enctype="multipart/form-data">      
-                        <input type="text" name="title" placeholder="Tytuł" class="border border-0 outline-0 bg-transparent text-light">
-                        <hr>                                                              
-                        <textarea name="text" placeholder="Pisz" class="postTextArea border border-0" maxlength="500"></textarea>                            
-
-                        
-                        <div id="preview-container" class="d-flex flex-wrap mb-3"></div>
-
-                        <hr>
-                        <div class="d-flex">
-                            <input type="submit" class="postSubmitButton mt-3 w-100 me-2" value="Opublikuj">
-                            <div class="mt-3">                                
-                                <label for="profile_picture" class="attachment-icon" style="cursor: pointer;">
-                                    <i class="bi bi-paperclip fs-3"></i>                                   
-                                    <input type="file" name="upload[]" id="profile_picture" accept="image/*" multiple style="display: none;"> 
-                                </label>                                                                   
-                            </div>                                                                                                                                                     
-                        </div>                                                     
-                    </form>
+                        <form method="POST" action="post/add-post.php" class="d-flex flex-column" enctype="multipart/form-data">      
+                            <input type="text" name="title" placeholder="Tytuł" class="border border-0 outline-0 bg-transparent text-light">
+                            <hr>                                                              
+                            <textarea name="text" placeholder="Pisz" class="postTextArea border border-0" maxlength="500"></textarea>  
+                            <hr>                                                      
+                            <div id="file-names-container" class="text-light mb-3"></div>
+                            
+                            <div class="d-flex">
+                                <input type="submit" class="postSubmitButton mt-3 w-100 me-2" value="Opublikuj">
+                                <div class="mt-3">                                
+                                    <label for="profile_picture" class="attachment-icon" style="cursor: pointer;">
+                                        <i class="bi bi-paperclip fs-3"></i>                                   
+                                        <input type="file" name="upload[]" id="profile_picture" accept="image/*" multiple style="display: none;"> 
+                                    </label>                                                                   
+                                </div>                                                                                                                                                     
+                            </div>                                                     
+                        </form>
                     </div>
                 </div>
             </div>

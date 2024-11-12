@@ -146,3 +146,17 @@ input
 {
     outline: 0;
 }
+
+.dropdown-item-bg:hover
+{
+    background-color: #00000052;
+}
+.dropdown-menu
+{
+    background-color: #ffffff23;
+    backdrop-filter: blur(4px);
+}
+.dropdown-menu a
+{
+    font-weight: 500;
+}

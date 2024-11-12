@@ -1,22 +1,15 @@
-document.getElementById("post_picture").addEventListener("change", function(event) {
-    const previewContainer = document.getElementById("preview-container");
-    previewContainer.innerHTML = ""; 
-    
-    const files = event.target.files;
-    if (files.length === 0) return; 
-    
-    Array.from(files).forEach(file => {
-       
-        if (!file.type.startsWith("image/")) return;
+document.getElementById("profile_picture").addEventListener("change", function(event) {
+    const fileNamesContainer = document.getElementById("file-names-container");
+    fileNamesContainer.innerHTML = ""; // Czyści poprzednie nazwy plików
 
-        
-        const imgElement = document.createElement("img");
-        imgElement.src = URL.createObjectURL(file);
-        imgElement.classList.add("img-thumbnail", "me-2", "mb-2");
-        imgElement.style.width = "100px"; 
-        imgElement.style.height = "100px";
-        
-    
-        previewContainer.appendChild(imgElement);
+    const files = event.target.files;
+    if (files.length === 0) return; // Jeśli nie wybrano żadnych plików, zakończ
+
+    // Wyświetlanie nazw plików
+    Array.from(files).forEach(file => {
+        const fileNameElement = document.createElement("p");
+        fileNameElement.textContent = file.name;
+        fileNamesContainer.appendChild(fileNameElement);
     });
 });
+
