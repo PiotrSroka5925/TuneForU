@@ -9,9 +9,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     searchBar.addEventListener("change", () => {
         range = 1;
+        offset = 0;
         search = searchBar.value;
         updateSearchParam(search);
-        postsContainer.innerHTML = "";
+        postsContainer.innerHTML = "";       
         getPosts();
     }, false)
 

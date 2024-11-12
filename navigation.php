@@ -13,8 +13,10 @@ if(isset($_SESSION['logged_id'])){
     $user = $query->fetch();            
 }
   
-
 ?>
+
+
+<script src="js/navigation-search-bar.js"></script>
 
 <div class="sidebar bg-black">    
     <div class="mx-auto" style="max-width: 200px;">
@@ -25,7 +27,7 @@ if(isset($_SESSION['logged_id'])){
 
     <ul class="nav flex-column p-2">
         <li class="nav-item">
-            <a class="nav-link d-flex fs-5 align-items-center" href="#">
+            <a class="nav-link d-flex fs-5 align-items-center" href="index.php">
                 <div class="d-flex align-items-center iconDiv" style="width: 40px;">
                     <i class="bi bi-house-door-fill fs-3"></i> 
                 </div>
@@ -42,7 +44,7 @@ if(isset($_SESSION['logged_id'])){
             <div class="dropdown align-items-center d-flex">                
                 <ul class="dropdown-menu w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
                     <li>                        
-                       <input class="rounded-3 ms-2" type="search" <?php  if(isset($_GET['search'])) echo 'value="'.$_GET['search'].'"' ?>  id="searchBar">
+                       <input class="rounded-3 ms-2" type="search" id="searchBarNavigation">
                     </li>                                                         
                 </ul>
             </div>    
