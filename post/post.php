@@ -34,12 +34,12 @@
 </head>
 <body class="bg-black text-white">
     <div id="fullpage"></div>
-    <div class="container-fluid">
-        <div class="row mx-5">
+    <div class="container">
+        <div class="row">
             <div class="col-3">
-
+                sda
             </div>
-            <div class="col-6">
+            <div class="col-9 col-md-6">
                 <div class="px-3 py-2 border border-secondary">
                     <div class="d-flex w-100 align-items-center border-bottom border-secondary pb-2">
                         <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55">
@@ -61,10 +61,10 @@
                     <?php 
                         $data = json_decode($post['data']);
                         if($data != null){
-                            echo '<div class="postImages my-2 pe-2" style="max-width: 100%;">';
+                            echo '<div class="postImages my-2 pe-2">';
                                 echo '<div class="row g-2">';
                                     foreach ($data as $url) {
-                                        echo '<div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-center">';
+                                        echo '<div class="col-sm-6 col-md-12 col-lg-4 d-flex align-items-center">';
                                         echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $url . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
                                         echo '</div>';
                                     }
@@ -74,7 +74,7 @@
                     ?>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-3">
 
             </div>
         </div>
