@@ -55,11 +55,11 @@
     
                             if ($imageCount === 1) {
                                 echo '<div class="col-12 d-flex align-items-center">';
-                                echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $data[0] . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
+                                echo '<img style="max-height: 600px;" src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $data[0] . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
                                 echo '</div>';
                             } elseif ($imageCount === 2) {
                                 foreach ($data as $url) {
-                                    echo '<div class="col-6 d-flex align-items-center">';
+                                    echo '<div  class="col-6 d-flex align-items-center">';
                                     echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $url . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
                                     echo '</div>';
                                 }
@@ -122,7 +122,7 @@
 
                             $popularity;
                             ?>
-                        <i class="bi bi-bar-chart"></i><span><?=round($popularity * 100, 2)?></span>
+                        <i class="bi bi-bar-chart"></i><span><?=round($popularity * 10)?></span>
                     </div>
                 </div>
             </div>
