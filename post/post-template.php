@@ -49,7 +49,7 @@
             <?php 
                 $data = json_decode($post['data']);
                 if($data != null){
-                    echo '<div class="postImages my-2 pe-3" style="max-width: 550px;">';
+                    echo '<div class="postImages my-2 pe-2" style="max-width: 100%;">';
                         echo '<div class="row g-2">';
                             $imageCount = count($data);
     
