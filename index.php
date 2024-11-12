@@ -10,17 +10,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/styleNavigationPage.css">
 </head>
-<body class="bg-black">
+<body class="bg-black text-white">
     <div id="fullpage"></div>
-    <div class="container d-flex">
+    <div class="container-lg">
         <div class="row">
-            <div class="col-md-3 menu">
+            <div class="col-2 col-sm-3">
                 <?php 
                     require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/navigation.php');
                 ?>
             </div>
             <div class="col-md-6 text-center postBox" id="postsContainer">
-
             </div>
             <div class="col-md-3">
                 <div class="container">
