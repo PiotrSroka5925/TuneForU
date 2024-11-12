@@ -151,12 +151,12 @@ input
 {
     background-color: #00000052;
 }
-.dropdown-menu
+.dropdown-menu-blur
 {
     background-color: #ffffff23;
     backdrop-filter: blur(4px);
 }
-.dropdown-menu a
+.dropdown-menu-blur a
 {
     font-weight: 500;
 }

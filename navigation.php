@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-//unset($_SESSION['logged_id']);
+
 require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
 
 
@@ -42,12 +42,12 @@ if(isset($_SESSION['logged_id'])){
                 <span class="d-none d-sm-inline">Przeglądaj</span>
             </button>
             <div class="dropdown align-items-center d-flex">                
-                <ul class="dropdown-menu w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
-                    <li>                        
-                       <input class="rounded-3 ms-2" type="search" id="searchBarNavigation">
+                <ul class="dropdown-menu w-100 m-0 rounded-4 bg-black" aria-labelledby="userDropdown">                   
+                    <li class="w-100 h-100 m-0">                        
+                        <input class="rounded-3 w-100 h-100 m-0 p-2" type="search" id="searchBarNavigation" placeholder="Search">
                     </li>                                                         
                 </ul>
-            </div>    
+            </div>   
         </li>
         <li class="nav-item">
             <a class="nav-link d-flex align-items-center fs-5" href="#">
@@ -68,7 +68,7 @@ if(isset($_SESSION['logged_id'])){
                 </div>
             </button>
             <div class="dropdown align-items-center d-flex">                
-                <ul class="dropdown-menu w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
+                <ul class="dropdown-menu dropdown-menu-blur w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
                     <li>
                         <a class="dropdown-item dropdown-item-bg text-light " href="profile.php">
                             Profil
@@ -116,7 +116,7 @@ if(isset($_SESSION['logged_id'])){
                             <hr>                                                              
                             <textarea name="text" placeholder="Pisz" class="postTextArea border border-0" maxlength="500"></textarea>  
                             <hr>                                                      
-                            <div id="file-names-container" class="text-light mb-3"></div>
+                            <div id="file-names-container" class="text-light mb-3 d-flex flex-wrap"></div>
                             
                             <div class="d-flex">
                                 <input type="submit" class="postSubmitButton mt-3 w-100 me-2" value="Opublikuj">

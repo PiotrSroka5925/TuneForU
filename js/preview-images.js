@@ -7,7 +7,8 @@ document.getElementById("profile_picture").addEventListener("change", function(e
 
     // Wyświetlanie nazw plików
     Array.from(files).forEach(file => {
-        const fileNameElement = document.createElement("p");
+        const fileNameElement = document.createElement("span");
+        fileNameElement.classList.add("ms-2");
         fileNameElement.textContent = file.name;
         fileNamesContainer.appendChild(fileNameElement);
     });
