@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if(response){
                 postsContainer.innerHTML += response;
+                range += 1;
                 createLoadMoreButton(true);
             }
             else{
@@ -48,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 button.id = "loadMoreButton";
                 button.textContent = "Załaduj więcej";
                 button.addEventListener("click", () => {
-                    range += 1;
                     getPosts();
                 });
     
