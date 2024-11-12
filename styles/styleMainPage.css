@@ -2,6 +2,11 @@
 {
     border: 1px solid rgb(68, 68, 68);
 }
+
+.long-text
+{
+    word-wrap: break-word;
+}
 .postContainer
 {
     color: white;

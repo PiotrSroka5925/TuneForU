@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
             if(append){
                 button = document.createElement("button");
+                button.classList.add("btn", "btn-light", "my-3");
                 button.id = "loadMoreButton";
                 button.textContent = "Załaduj więcej";
                 button.addEventListener("click", () => {

@@ -11,8 +11,8 @@
 
 <div class="postContainer">
     <div class="d-flex mt-2">
-        <div style="width: 55px"> 
-            <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55">
+        <div style="width: 55px;"> 
+            <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55" height="55">
         </div>
         <div class="w-100 mx-2">
             <div class="postHeader">
