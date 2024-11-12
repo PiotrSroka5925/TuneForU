@@ -38,7 +38,7 @@
 
             </div>
             <div class="col-6">
-                <div class="p-3 border border-secondary">
+                <div class="px-3 py-2 border border-secondary">
                     <div class="d-flex w-100 align-items-center border-bottom border-secondary pb-2">
                         <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55">
                         <div class="w-100 d-flex align-items-center">
@@ -47,6 +47,14 @@
                             <span class="d-block ms-auto"> <?=$post['date']?></span>
                         </div>
                     </div>
+
+                    <div>
+                        <span class="fs-4 text-break"><?=$post['title']?></span>
+                    </div>  
+
+                    <div class="mt-2">
+                        <span class="text-break"><?=$post['text']?></span>
+                    </div>  
                 </div>
             </div>
             <div class="col-3">
