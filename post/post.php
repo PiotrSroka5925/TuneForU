@@ -40,8 +40,8 @@
             <div class="col-2">
                 <?php require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/navigation.php'); ?>
             </div>
-            <div class="col-10 col-md-7">
-                <div class="px-3 py-2 border-start border-secondary">
+            <div class="col-10 col-md-7 border-start border-secondary">
+                <div class="py-2">
                     <div class="d-flex w-100 align-items-center border-bottom border-secondary pb-2">
                         <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55">
                         <div class="w-100 d-flex align-items-center">
@@ -73,6 +73,37 @@
                             echo '</div>';   
                         }                     
                     ?>
+                </div>
+
+                <div class="py-2">
+                    <div class="d-flex justify-content-evenly border-top border-bottom border-secondary">
+                        <div class="interactions">
+                            <i class="bi bi-hand-thumbs-up"></i><span><?=$post['likes']?></span>
+                        </div>
+                        <div class="interactions">
+                            <i class="bi bi-chat"></i><span>0</span>
+                        </div>
+                        <div class="interactions">
+                            <?php
+                                $postDate = $post['date'];
+
+                                $postDateTime = new DateTime($postDate);
+                                $now = new DateTime();
+
+                                $interval = $now->diff($postDateTime);
+                                $hoursDiff = ($interval->days * 24) + $interval->h + ($interval->i / 60) + ($interval->s / 3600);
+
+                                if ($hoursDiff > 0) {
+                                    $popularity = $post['likes'] / $hoursDiff;
+                                } else {
+                                    $popularity = 0; 
+                                }
+
+                                $popularity;
+                                ?>
+                            <i class="bi bi-bar-chart"></i><span><?=round($popularity * 10)?></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-3">
