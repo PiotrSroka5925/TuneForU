@@ -23,7 +23,7 @@
 
     <ul class="nav flex-column p-2">
         <li class="nav-item">
-            <a class="nav-link d-flex fs-5 align-items-center" href="index.php">
+            <a class="nav-link d-flex fs-5 align-items-center" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php"?>">
                 <div class="d-flex align-items-center iconDiv" style="width: 40px;">
                     <i class="bi bi-house-door-fill fs-3"></i> 
                 </div>
