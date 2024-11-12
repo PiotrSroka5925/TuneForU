@@ -29,11 +29,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TuneForU</title>
+    <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/fullPage.css"?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body class="bg-black text-white">
-    <div class="container">
-        <div class="row">
+    <div id="fullpage"></div>
+    <div class="container-fluid">
+        <div class="row mx-5">
             <div class="col-3">
 
             </div>
@@ -55,6 +57,21 @@
                     <div class="mt-2">
                         <span class="text-break"><?=$post['text']?></span>
                     </div>  
+
+                    <?php 
+                        $data = json_decode($post['data']);
+                        if($data != null){
+                            echo '<div class="postImages my-2 pe-2" style="max-width: 100%;">';
+                                echo '<div class="row g-2">';
+                                    foreach ($data as $url) {
+                                        echo '<div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-center">';
+                                        echo '<img src="' . $protocol . $_SERVER['HTTP_HOST'] . "/tuneforu" . $url . '" alt="post_image" class="img-fluid rounded" onclick="displayFullPageImage(this)">';
+                                        echo '</div>';
+                                    }
+                                echo '</div>';
+                            echo '</div>';   
+                        }                     
+                    ?>
                 </div>
             </div>
             <div class="col-3">
@@ -63,6 +80,7 @@
         </div>
     </div>
     
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/full-page-photo.js"?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
