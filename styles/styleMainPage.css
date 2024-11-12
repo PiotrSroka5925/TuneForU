@@ -1,0 +1,63 @@
+.postBox
+{
+    border: 1px solid rgb(68, 68, 68);
+}
+
+.long-text
+{
+    word-wrap: break-word;
+}
+.postContainer
+{
+    color: white;
+    border-bottom: 1px solid rgb(68, 68, 68);
+    border-top: 1px solid rgb(68, 68, 68);
+}
+
+.username
+{
+    font-weight: bold;
+}
+.login, .date
+{
+    font-size: small; 
+    color: grey;
+}
+
+.interactions
+{
+    color: gray;
+}
+.interactions span
+{
+    font-size: small;
+    margin-left: 5px;
+}
+
+.bi-search
+{
+    color: white;
+}
+
+.recommendations
+{
+    margin-left: 0.001em !important;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgb(68, 68, 68);
+    color: white;
+}
+
+.hashtagList
+{
+    list-style-type: none;
+    color: grey;
+}
+.hashtagList li
+{
+    margin-top: 10px;
+}
+.hashtagList li:hover
+{
+    text-decoration: underline;
+}

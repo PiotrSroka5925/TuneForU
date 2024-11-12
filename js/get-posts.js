@@ -9,9 +9,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     searchBar.addEventListener("change", () => {
         range = 1;
+        offset = 0;
         search = searchBar.value;
         updateSearchParam(search);
-        postsContainer.innerHTML = "";
+        postsContainer.innerHTML = "";       
         getPosts();
     }, false)
 
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
             if(append){
                 button = document.createElement("button");
+                button.classList.add("btn", "btn-light", "my-3");
                 button.id = "loadMoreButton";
                 button.textContent = "Załaduj więcej";
                 button.addEventListener("click", () => {
