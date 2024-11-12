@@ -16,7 +16,7 @@ if(isset($_SESSION['logged_id'])){
 ?>
 
 
-<script src="js/navigation-search-bar.js"></script>
+<script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/navigation-search-bar.js"?>"></script>
 
 <div class="sidebar bg-black">    
     <div class="mx-auto" style="max-width: 200px;">
