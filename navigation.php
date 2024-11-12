@@ -107,10 +107,25 @@ if(isset($_SESSION['logged_id'])){
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="GET" action="" class="d-flex flex-column" enctype="multipart/form-data">                                                                    
-                            <textarea name="postContent" placeholder="Pisz" class="postTextArea border border-0"></textarea>
-                            <input type="submit" class="postSubmitButton mt-3" value="Opublikuj">
-                        </form>
+                    <form method="POST" action="post/add-post.php" class="d-flex flex-column" enctype="multipart/form-data">      
+                        <input type="text" name="title" placeholder="Tytuł" class="border border-0 outline-0 bg-transparent text-light">
+                        <hr>                                                              
+                        <textarea name="text" placeholder="Pisz" class="postTextArea border border-0" maxlength="500"></textarea>                            
+
+                        
+                        <div id="preview-container" class="d-flex flex-wrap mb-3"></div>
+
+                        <hr>
+                        <div class="d-flex">
+                            <input type="submit" class="postSubmitButton mt-3 w-100 me-2" value="Opublikuj">
+                            <div class="mt-3">                                
+                                <label for="profile_picture" class="attachment-icon" style="cursor: pointer;">
+                                    <i class="bi bi-paperclip fs-3"></i>                                   
+                                    <input type="file" name="upload[]" id="profile_picture" accept="image/*" multiple style="display: none;"> 
+                                </label>                                                                   
+                            </div>                                                                                                                                                     
+                        </div>                                                     
+                    </form>
                     </div>
                 </div>
             </div>

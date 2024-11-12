@@ -141,3 +141,8 @@
     transition-duration: 0.3s;
     border-radius: 25px;
 }
+
+input
+{
+    outline: 0;
+}

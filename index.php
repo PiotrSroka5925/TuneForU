@@ -8,6 +8,8 @@
 <body>
     <?php
         require_once("navigation.php");
-    ?>
+    ?> 
+    
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/previewImages.js"?>"></script>
 </body>
 </html>
