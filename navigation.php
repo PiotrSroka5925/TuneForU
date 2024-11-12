@@ -1,18 +1,14 @@
 <?php
-
-session_start();
-
-require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
 
 
-if(isset($_SESSION['logged_id'])){
-                
-    $query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
-    $query->bindParam(':user_id', $_SESSION['logged_id'], PDO::PARAM_INT);
-    $query->execute();
-    $user = $query->fetch();            
-}
-  
+    if(isset($_SESSION['logged_id'])){
+                    
+        $query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
+        $query->bindParam(':user_id', $_SESSION['logged_id'], PDO::PARAM_INT);
+        $query->execute();
+        $user = $query->fetch();            
+    }
 ?>
 
 

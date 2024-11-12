@@ -28,19 +28,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuneForU</title>
+    <title>TuneForU</title> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/fullPage.css"?>">
     <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/styleNavigationPage.css"?>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/styleMainPage.css"?>">
 </head>
 <body class="bg-black text-white">
     <div id="fullpage"></div>
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="col-3 menu">
                 <?php require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/navigation.php'); ?>
             </div>
-            <div class="col-10 col-md-7 border-start border-secondary">
+            <div class="col-9 col-md-7 border-start border-secondary">
                 <div class="py-2">
                     <div class="d-flex w-100 align-items-center border-bottom border-secondary pb-2">
                         <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55">
