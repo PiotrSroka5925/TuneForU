@@ -35,11 +35,11 @@
                 break;
             case "popularity7Days":
                 $dateFilter = "date >= NOW() - INTERVAL 7 DAY";
-                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                $order = "ORDER BY likes / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
                 break;
             default:
                 $dateFilter = "date >= NOW() - INTERVAL 30 DAY";
-                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                $order = "ORDER BY likes / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
                 break;
         }
 
@@ -48,7 +48,6 @@
         }
 
         $queryStr = "SELECT * FROM post JOIN user USING (user_id) $where $order LIMIT :limit_min, :range_length";  
-
         $query = $db->prepare($queryStr);
         
         if (isset($search)){
