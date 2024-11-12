@@ -111,7 +111,7 @@ if(isset($_SESSION['logged_id'])){
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="post/add-post.php" class="d-flex flex-column" enctype="multipart/form-data">      
+                        <form method="POST" action="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/post/post.php"?>" class="d-flex flex-column" enctype="multipart/form-data">      
                             <input type="text" name="title" placeholder="Tytuł" class="border border-0 outline-0 bg-transparent text-light">
                             <hr>                                                              
                             <textarea name="text" placeholder="Pisz" class="postTextArea border border-0" maxlength="500"></textarea>  
