@@ -25,11 +25,20 @@
                 ?>
             </div>
             <div class="col-10 col-md-6 text-center postBox">
-                <div class="input-group rounded my-2">
-                    <input type="search" class="form-control rounded" <?php  if(isset($_GET['search'])) echo 'value="'.$_GET['search'].'"' ?> placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="searchBar"/>
-                    <span class="input-group-text border-0 bg-transparent" id="search-addon">
-                        <i class="bi bi-search"></i>
-                    </span>
+                <div class="d-flex  my-2">
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded w-50" <?php  if(isset($_GET['search'])) echo 'value="'.$_GET['search'].'"' ?> placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="searchBar"/>
+                        <span class="input-group-text border-0 bg-transparent" id="search-addon">
+                            <i class="bi bi-search"></i>
+                        </span>
+                    </div>
+                    <select name="order" id="orderSelect" class="form-select" style="width: 300px;">
+                            <option value="date" selected>Data dodania</option>
+                            <option value="popularity7Days">Popularne - 7 dni</option>
+                            <option value="popularity30Days">Popularne - 30 dni</option>
+                            <option value="popularity1Year">Popularne - rok</option>
+                            <option value="likesAllTime">Nawięcej polubień</option>
+                    </select>
                 </div>
                 <div id="postsContainer"></div>
             </div>
