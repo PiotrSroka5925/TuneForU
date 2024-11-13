@@ -72,7 +72,7 @@
     display: inline-block;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
     .navWriting {
         display: inline-block;
     }
@@ -80,18 +80,12 @@
     .navIcon {
         display: none; 
     }
+   
+    
 }
 
-@media only screen and (max-width: 599px) {
-    .btn-custom
-    {
-        display: block;
-        width: 40px;
-        height: 40px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0px;
-    }
+
+@media only screen and (max-width: 767px) {
 
     .btn-profile
     {
@@ -101,7 +95,22 @@
         width: 40px;
         height: 40px;
         padding: 0px;
-    }    
+    }  
+
+    .btn-custom
+    {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+    } 
+
+}
+
+
+@media only screen and (max-width: 599px) {        
 
     .nav-item a, #navSearchButton{
         padding-left: 0;
@@ -109,7 +118,7 @@
     }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
     .iconDiv
     {
         margin: auto;
