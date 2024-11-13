@@ -1,5 +1,5 @@
 function likePost(postId) {
-    fetch('post/like-handler.php', {
+    fetch(`${location.protocol}//${location.hostname}/tuneforu/post/like-handler.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ post_id: postId })
