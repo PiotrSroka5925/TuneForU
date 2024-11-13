@@ -25,24 +25,22 @@
                 ?>
             </div>
             <div class="col-10 col-md-6 text-center postBox">
+                <div class="input-group rounded my-2">
+                    <input type="search" class="form-control rounded" <?php  if(isset($_GET['search'])) echo 'value="'.$_GET['search'].'"' ?> placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="searchBar"/>
+                    <span class="input-group-text border-0 bg-transparent" id="search-addon">
+                        <i class="bi bi-search"></i>
+                    </span>
+                </div>
                 <div id="postsContainer"></div>
             </div>
             <div class="col-12 col-md-3">
                 <div class="container">
-                    <div class="row mt-2">
-                        <div class="input-group rounded">
-                            <input type="search" class="form-control rounded" <?php  if(isset($_GET['search'])) echo 'value="'.$_GET['search'].'"' ?> placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="searchBar"/>
-                            <span class="input-group-text border-0 bg-transparent" id="search-addon">
-                                <i class="bi bi-search"></i>
-                            </span>
-                        </div>
-                    </div>
                     <div class="row mt-4 recommendations">
                         <h4>Who to follow</h4>
                         <div class="container">
                             <div class="row mt-4">
                                 <div class="d-flex align-items-center">
-                                    <img src="#" alt="profile-image">
+                                    <img src="img/profiles/default.jpg" alt="profile-image" class="rounded-circle" width="50" height="50">
                                     <div class="container">
                                         <div class="row">
                                             <span><b>Username</b></span>
@@ -56,7 +54,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="d-flex align-items-center">
-                                    <img src="#" alt="profile-image">
+                                    <img src="img/profiles/default.jpg" alt="profile-image" class="rounded-circle" width="50" height="50">
                                     <div class="container">
                                         <div class="row">
                                             <span><b>Username</b></span>
@@ -70,7 +68,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="d-flex align-items-center">
-                                    <img src="#" alt="profile-image">
+                                    <img src="img/profiles/default.jpg" alt="profile-image" class="rounded-circle" width="50" height="50">
                                     <div class="container">
                                         <div class="row">
                                             <span><b>Username</b></span>
