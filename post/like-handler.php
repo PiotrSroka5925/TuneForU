@@ -34,4 +34,10 @@
         $stmt->execute();
         $liked = true;
     }
+
+    $query = "SELECT COUNT(*) AS like_count FROM likes WHERE post_id = :post_id";
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':post_id', $post_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $like_count = $stmt->fetchColumn();
 ?>
