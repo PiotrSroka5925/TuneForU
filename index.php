@@ -49,7 +49,7 @@
                                             <span style="color: grey;">@login</span>
                                         </div>
                                     </div>
-                                    <button class="btn btn-light">follow</button>
+                                    <button class="btn border-none bg-none bg-transparent fs-5"><i class="bi bi-check-circle-fill text-white"></i></button>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -63,7 +63,7 @@
                                             <span style="color: grey;">@login</span>
                                         </div>
                                     </div>
-                                    <button class="btn btn-light">follow</button>
+                                    <button class="btn border-none bg-none bg-transparent fs-5"><i class="bi bi-check-circle text-white"></i></button>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -77,7 +77,7 @@
                                             <span style="color: grey;">@login</span>
                                         </div>
                                     </div>
-                                    <button class="btn btn-light">follow</button>
+                                    <button class="btn border-none bg-none bg-transparent fs-5"><i class="bi bi-check-circle text-white"></i></button>
                                 </div>
                             </div>
                         </div>
