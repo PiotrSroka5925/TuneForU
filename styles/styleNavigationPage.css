@@ -72,7 +72,7 @@
     display: inline-block;
 }
 
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 600px) {
     .navWriting {
         display: inline-block;
     }
@@ -82,7 +82,7 @@
     }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 599px) {
     .btn-custom
     {
         display: block;

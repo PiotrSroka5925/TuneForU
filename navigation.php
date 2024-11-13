@@ -17,11 +17,12 @@
 <div class="sidebar bg-black">    
     <div class="mx-auto" style="max-width: 200px;">
         <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" alt="TuneForULogo" class="img-fluid d-none d-sm-block">                
-    </div>        
-    <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/small_logo.png"?>" alt="TuneForULogo" class="img-fluid d-block d-sm-none mx-auto mb-4" width="40px" height="40px">
-           
+    </div>    
+    <div class="mx-auto" style="width:40px;">    
+        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/small_logo.png"?>" alt="TuneForULogo" class="img-fluid d-block d-sm-none mx-auto mb-4" width="40px" height="40px">
+    </div>
 
-    <ul class="nav flex-column p-2 aling-items-center">
+    <ul class="nav flex-column  aling-items-center">
         <li class="nav-item">
             <a class="nav-link d-flex fs-5 align-items-center" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php"?>">
                 <div class="d-flex align-items-center iconDiv" style="width: 40px;">

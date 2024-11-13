@@ -16,6 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
         getPosts();
     }, false)
 
+    const orderSelect = document.getElementById("orderSelect");
+    order = orderSelect.value;
+
+    orderSelect.addEventListener("change", () => {
+        range = 1;
+        offset = 0;
+        order = orderSelect.value;
+        postsContainer.innerHTML = "";       
+        getPosts();
+    }, false)
+
     async function getPosts() {
         try {
             const url = `${location.protocol}//${location.hostname}/tuneforu/post/get-posts.php`;
