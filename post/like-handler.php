@@ -40,4 +40,6 @@
     $stmt->bindValue(':post_id', $post_id, PDO::PARAM_INT);
     $stmt->execute();
     $like_count = $stmt->fetchColumn();
+
+    echo json_encode(['success' => true, 'like_count' => $like_count, 'liked' => $liked]);
 ?>
