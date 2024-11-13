@@ -1,5 +1,7 @@
 <?php
+    session_start();  
     require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
+    $like_user_id = isset($_SESSION['logged_id']) ? $_SESSION['logged_id'] : null;
 
     if(isset($_POST['range'])){
         $range = filter_input(INPUT_POST, 'range', FILTER_VALIDATE_INT);
