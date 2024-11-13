@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Lis 02, 2024 at 02:00 PM
+-- Generation Time: Lis 13, 2024 at 07:06 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -26,6 +26,18 @@ USE `musicforum`;
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `likes`
+--
+
+CREATE TABLE `likes` (
+  `like_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `post_id` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `post`
 --
 
@@ -35,11 +47,14 @@ CREATE TABLE `post` (
   `text` varchar(500) NOT NULL,
   `date` datetime NOT NULL,
   `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`data`)),
-  `likes` int(11) NOT NULL DEFAULT 0,
   `user_id` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `post`
+--
+
+ --------------------------------------------------------
 
 --
 -- Struktura tabeli dla tabeli `user`
@@ -55,8 +70,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+--
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`like_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `post_id` (`post_id`);
 
 --
 -- Indeksy dla tabeli `post`
@@ -76,6 +103,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `like_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
@@ -90,6 +123,13 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `likes`
+--
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`);
 
 --
 -- Constraints for table `post`
