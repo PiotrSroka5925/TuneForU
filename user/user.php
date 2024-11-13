@@ -48,7 +48,7 @@
             </div>
             <div class="col-10 col-md-6 text-center userBox">
                 <div class="container">
-                    <div class="row">
+                    <div class="row userInfo">
                         <div class="col">
                             <div class="profilePicBox d-flex justify-content-start mt-4">
                                 <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture']?>" class="profileImage"/>
