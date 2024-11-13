@@ -17,16 +17,17 @@
 </head>
 <body class="bg-black text-white">
     <div id="fullpage"></div>
-    <div class="container-lg">
+    <div class="container-lg px-0">
         <div class="row">
-            <div class="col-2 col-sm-3">
+            <div class="col-2 col-md-3 pe-0">
                 <?php 
                     require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/navigation.php');
                 ?>
             </div>
-            <div class="col-md-6 text-center postBox" id="postsContainer">
+            <div class="col-10 col-md-6 text-center postBox">
+                <div id="postsContainer"></div>
             </div>
-            <div class="col-md-3">
+            <div class="col-12 col-md-3">
                 <div class="container">
                     <div class="row mt-2">
                         <div class="input-group rounded">
