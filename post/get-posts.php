@@ -1,5 +1,7 @@
 <?php
+    session_start();  
     require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
+    $like_user_id = isset($_SESSION['logged_id']) ? $_SESSION['logged_id'] : null;
 
     if(isset($_POST['range'])){
         $range = filter_input(INPUT_POST, 'range', FILTER_VALIDATE_INT);
@@ -33,27 +35,27 @@
                 $order = "ORDER BY date DESC";
                 break;
             case "likesAllTime":
-                $order = "ORDER BY likes DESC";
+                $order = "ORDER BY likes_count DESC";
                 break;
             case "popularity1Year":
                 $dateFilter = "date >= NOW() - INTERVAL 1 YEAR";
-                $order = "ORDER BY likes / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
+                $order = "ORDER BY likes_count / TIMESTAMPDIFF(HOUR, date, NOW()) DESC";
                 break;
             case "popularity7Days":
                 $dateFilter = "date >= NOW() - INTERVAL 7 DAY";
-                $order = "ORDER BY likes / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
+                $order = "ORDER BY likes_count / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
                 break;
             default:
                 $dateFilter = "date >= NOW() - INTERVAL 30 DAY";
-                $order = "ORDER BY likes / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
+                $order = "ORDER BY likes_count / TIMESTAMPDIFF(MINUTE, date, NOW()) DESC";
                 break;
         }
 
         if (!empty($dateFilter)) {
             $where .= (empty($where) ? "WHERE" : " AND") . " " . $dateFilter;
         }
-
-        $queryStr = "SELECT * FROM post JOIN user USING (user_id) $where $order LIMIT :limit_min, :range_length";  
+        
+        $queryStr = "SELECT p.*, u.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.post_id) AS likes_count FROM post p JOIN user u ON u.user_id = p.user_id $where $order LIMIT :limit_min, :range_length";
         $query = $db->prepare($queryStr);
         
         if (isset($search)){

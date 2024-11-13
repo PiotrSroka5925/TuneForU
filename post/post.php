@@ -6,7 +6,7 @@
     $redirectUrl = $protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php';
 
     if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)){
-        $query = $db->prepare("SELECT * FROM post JOIN user USING (user_id) WHERE post_id = :post_id");
+        $query = $db->prepare("SELECT p.*, u.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.post_id) AS likes_count FROM post p JOIN user u ON u.user_id = p.user_id WHERE p.post_id = :post_id");
         $query->bindValue(':post_id', $_GET['id'], PDO::PARAM_INT);
         $query->execute();
 
@@ -80,7 +80,24 @@
                 <div class="py-2">
                     <div class="d-flex justify-content-evenly border-top border-bottom border-secondary">
                         <div class="interactions">
-                            <i class="bi bi-hand-thumbs-up"></i><span><?=$post['likes']?></span>
+                            <?php
+                                $user_liked = false;
+
+                                $user_id = isset($_SESSION['logged_id']) ? $_SESSION['logged_id'] : null;
+                                
+                                if ($user_id) {
+                                    $query = "SELECT * FROM likes WHERE user_id = :user_id AND post_id = :post_id";
+                                    $stmt = $db->prepare($query);
+                                    $stmt->bindValue(':user_id', $user_id , PDO::PARAM_INT);
+                                    $stmt->bindValue(':post_id', $post['post_id'], PDO::PARAM_INT);
+                                    $stmt->execute();
+                                    $user_liked = $stmt->fetch(PDO::FETCH_ASSOC) ? true : false;
+                                }
+                            ?>
+                            <button onclick="likePost(<?=$post['post_id']?>)" class="like-button btn bg-transparent">
+                                <i id="like-icon-<?=$post['post_id']?>" class="bi <?= $user_liked  ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up' ?>"></i>
+                                <span id="like-count-<?=$post['post_id']?>"><?=$post['likes_count'] ?? 0?></span>
+                            </button>
                         </div>
                         <div class="interactions">
                             <i class="bi bi-chat"></i><span>0</span>
@@ -96,7 +113,7 @@
                                 $hoursDiff = ($interval->days * 24) + $interval->h + ($interval->i / 60) + ($interval->s / 3600);
 
                                 if ($hoursDiff > 0) {
-                                    $popularity = $post['likes'] / $hoursDiff;
+                                    $popularity = $post['likes_count'] / $hoursDiff;
                                 } else {
                                     $popularity = 0; 
                                 }
@@ -115,8 +132,9 @@
     </div>
 
     <?php require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/create-footer.php');?>
-    
+                                
     <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/full-page-photo.js"?>"></script>
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/like-post.js"?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

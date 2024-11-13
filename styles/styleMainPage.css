@@ -24,9 +24,9 @@
     color: grey;
 }
 
-.interactions
+.interactions, .interactions button
 {
-    color: gray;
+    color: gray !important;
 }
 .interactions span
 {
