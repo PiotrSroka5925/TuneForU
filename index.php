@@ -32,7 +32,7 @@
                             <i class="bi bi-search"></i>
                         </span>
                     </div>
-                    <select name="order" id="orderSelect" class="form-select" style="width: 300px;">
+                    <select name="order" id="orderSelect" class="form-select" style="width: 50%;">
                             <option value="date" selected>Data dodania</option>
                             <option value="popularity7Days">Popularne - 7 dni</option>
                             <option value="popularity30Days">Popularne - 30 dni</option>
