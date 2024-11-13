@@ -6,7 +6,7 @@
     $redirectUrl = $protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php';
 
     if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)){
-        $query = $db->prepare("SELECT * FROM post JOIN user USING (user_id) WHERE post_id = :post_id");
+        $query = $db->prepare("SELECT p.*, u.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.post_id) AS likes_count FROM post p JOIN user u ON u.user_id = p.user_id WHERE p.post_id = :post_id");
         $query->bindValue(':post_id', $_GET['id'], PDO::PARAM_INT);
         $query->execute();
 
