@@ -49,15 +49,15 @@
             <div class="col-10 col-md-6 text-center userBox">
                 <div class="container">
                     <div class="row userInfo">
-                        <div class="col">
-                            <div class="profilePicBox d-flex justify-content-start mt-4">
-                                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture']?>" class="profileImage"/>
-                            </div>
-                        </div>
-                        <div class="col mt-3">
-                            <div>
+                        <div class="col-6">
+                            <div class="d-flex justify-content-start align-items-end h-100">
                                 <span class="ms-2 fs-4 fw-bold text-break"><?=$user['user_name']?></span>
                                 <span class="text-secondary mb-1 text-break" style="font-size: 12px;"> @<?=$user['login']?></span>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <div class="profilePicBox d-flex justify-content-end mt-2">
+                                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture']?>" class="profileImage"/>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                             <option value="popularity1Year">Popularne - rok</option>
                             <option value="likesAllTime">Nawięcej polubień</option>
                     </select>
-                    <div id="postsContainer">
+                    <div id="postsContainer" class="mt-3">
                     </div>
                 </div>
             </div>
