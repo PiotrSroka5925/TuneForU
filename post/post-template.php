@@ -113,7 +113,7 @@
                         $user_liked = $stmt->fetch(PDO::FETCH_ASSOC) ? true : false;
                     }
                 ?>
-                <button onclick="likePost(<?=$post['post_id']?>)" class="like-button">
+                <button onclick="likePost(<?=$post['post_id']?>)" class="like-button btn bg-transparent">
                     <i id="like-icon-<?=$post['post_id']?>" class="bi <?= $user_liked  ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up' ?>"></i>
                     <span id="like-count-<?=$post['post_id']?>"><?=$post['likes_count'] ?? 0?></span>
                 </button>
