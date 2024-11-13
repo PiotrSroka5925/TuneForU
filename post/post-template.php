@@ -102,7 +102,13 @@
     <div class="my-3">
         <div class="d-flex justify-content-evenly">
             <div class="interactions">
-                <i class="bi bi-hand-thumbs-up"></i><span><?=$post['likes']?></span>
+            <?php
+                $query = "SELECT COUNT(*) AS like_count FROM likes WHERE post_id = :post_id";
+                $stmt = $db->prepare($query);
+                $stmt->bindValue(':post_id', $post['post_id'], PDO::PARAM_INT);
+                $stmt->execute();
+                $like_count = $stmt->fetchColumn();
+            ?>
             </div>
             <div class="interactions">
                 <i class="bi bi-chat"></i><span>0</span>
