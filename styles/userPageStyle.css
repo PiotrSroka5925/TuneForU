@@ -1,0 +1,14 @@
+.userBox
+{
+    border: 1px solid rgb(68, 68, 68);
+}
+
+.profileImage
+{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  
+    object-fit: cover;
+}
