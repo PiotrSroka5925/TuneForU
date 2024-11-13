@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Lis 13, 2024 at 07:06 PM
+-- Generation Time: Lis 13, 2024 at 09:55 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -50,11 +50,7 @@ CREATE TABLE `post` (
   `user_id` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `post`
---
-
- --------------------------------------------------------
+-- --------------------------------------------------------
 
 --
 -- Struktura tabeli dla tabeli `user`
@@ -70,11 +66,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
---
-
---
--- Indeksy dla zrzutów tabel
+-- Indeksy dla zrzutÃ³w tabel
 --
 
 --
