@@ -20,6 +20,11 @@
             $search = $_POST['search'];    
             $where = "WHERE (title LIKE :search1 OR text LIKE :search2 OR login LIKE :search3 OR user_name LIKE :search4)";
         }
+
+        if(isset($_POST['userId']) && filter_var($_POST['userId'], FILTER_VALIDATE_INT)){
+            $user_id = $_POST['userId'];
+            $where .= (empty($where) ? "WHERE" : " AND") . " user_id = :user_id";
+        }
         
         $dateFilter = "";
 
@@ -58,6 +63,11 @@
             $query->bindValue(':search3', $searchTerm, PDO::PARAM_STR);
             $query->bindValue(':search4', $searchTerm, PDO::PARAM_STR);
         }
+
+        if(isset($user_id)){
+            $query->bindValue(':user_id', $user_id, PDO::PARAM_STR);  
+        }
+
         $query->bindParam(':limit_min', $limit_min, PDO::PARAM_INT);
         $query->bindParam(':range_length', $range_length, PDO::PARAM_INT);
 

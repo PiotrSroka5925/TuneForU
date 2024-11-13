@@ -2,19 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let range = 1;
     let order = "date";
     let offset = 0;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id');
+
+    console.log(userId);
     const postsContainer = document.getElementById("postsContainer");
-
-    const searchBar = document.getElementById("searchBar");
-    let search = searchBar.value;
-
-    searchBar.addEventListener("change", () => {
-        range = 1;
-        offset = 0;
-        search = searchBar.value;
-        updateSearchParam(search);
-        postsContainer.innerHTML = "";       
-        getPosts();
-    }, false)
 
     const orderSelect = document.getElementById("orderSelect");
     order = orderSelect.value;
@@ -35,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 type: 'post',
                 cache: false,
                 dataType: 'json',
-                data: { range, order, search, offset}
+                data: { userId, range, order, offset}
             });
 
             if (response) {
@@ -92,15 +85,3 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ładowanie pierwszych wpisów po załadowaniu strony
     getPosts();
 });
-
-function updateSearchParam(newSearchValue) {
-    const url = new URL(window.location.href);
-
-    if(newSearchValue.length > 0){
-        url.searchParams.set('search', newSearchValue);
-    }
-    else
-        url.searchParams.delete('search');
-    
-    history.replaceState(null, '', url);
-}

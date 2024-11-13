@@ -19,7 +19,9 @@
 }
 .nav-item {
     margin-bottom: 15px;
+    width: 100%;
 }
+
 .logo {
     font-size: 2rem;
     font-weight: bold;
@@ -70,7 +72,7 @@
     display: inline-block;
 }
 
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 600px) {
     .navWriting {
         display: inline-block;
     }
@@ -80,7 +82,7 @@
     }
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 599px) {
     .btn-custom
     {
         display: block;
@@ -89,17 +91,6 @@
         margin-left: auto;
         margin-right: auto;
         padding: 0px;
-    }
-
-    .iconDiv
-    {
-        margin: auto;
-    }
-
-    .bi
-    {
-        margin-left: auto;
-        margin-right: auto;        
     }
 
     .btn-profile
@@ -111,6 +102,29 @@
         height: 40px;
         padding: 0px;
     }    
+
+    .nav-item a, #navSearchButton{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .iconDiv
+    {
+        margin: auto;
+    }
+
+    .bi
+    {
+        margin-left: auto;
+        margin-right: auto;        
+    }
+
+    .nav-item a, #navSearchButton{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .modal

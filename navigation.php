@@ -1,18 +1,14 @@
 <?php
-
-session_start();
-
-require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php');
 
 
-if(isset($_SESSION['logged_id'])){
-                
-    $query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
-    $query->bindParam(':user_id', $_SESSION['logged_id'], PDO::PARAM_INT);
-    $query->execute();
-    $user = $query->fetch();            
-}
-  
+    if(isset($_SESSION['logged_id'])){
+                    
+        $query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
+        $query->bindParam(':user_id', $_SESSION['logged_id'], PDO::PARAM_INT);
+        $query->execute();
+        $user = $query->fetch();            
+    }
 ?>
 
 
@@ -21,25 +17,26 @@ if(isset($_SESSION['logged_id'])){
 <div class="sidebar bg-black">    
     <div class="mx-auto" style="max-width: 200px;">
         <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_navigation.png"?>" alt="TuneForULogo" class="img-fluid d-none d-sm-block">                
-    </div>        
-    <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/small_logo.png"?>" alt="TuneForULogo" class="img-fluid d-block d-sm-none mx-auto mb-4" width="40px" height="40px">
-           
+    </div>    
+    <div class="mx-auto" style="width:40px;">    
+        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/small_logo.png"?>" alt="TuneForULogo" class="img-fluid d-block d-sm-none mx-auto mb-4" width="40px" height="40px">
+    </div>
 
-    <ul class="nav flex-column p-2">
+    <ul class="nav flex-column  aling-items-center">
         <li class="nav-item">
-            <a class="nav-link d-flex fs-5 align-items-center" href="index.php">
+            <a class="nav-link d-flex fs-5 align-items-center" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php"?>">
                 <div class="d-flex align-items-center iconDiv" style="width: 40px;">
                     <i class="bi bi-house-door-fill fs-3"></i> 
                 </div>
-                <span class="d-none d-sm-inline">Główna</span>
+                <span class="d-none d-md-inline">Główna</span>
             </a>
         </li>
         <li class="nav-item">
-            <button class="nav-link d-flex fs-5 align-items-center w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="nav-link d-flex fs-5 align-items-center w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="navSearchButton">
                 <div class="d-flex align-items-center iconDiv" style="width: 40px;">
                     <i class="bi bi-search fs-3"></i> 
                 </div>                
-                <span class="d-none d-sm-inline">Przeglądaj</span>
+                <span class="d-none d-md-inline">Przeglądaj</span>
             </button>
             <div class="dropdown align-items-center d-flex">                
                 <ul class="dropdown-menu w-100 m-0 rounded-4 bg-black" aria-labelledby="userDropdown">                   
@@ -54,7 +51,7 @@ if(isset($_SESSION['logged_id'])){
                 <div class="d-flex align-items-center iconDiv" style="width: 40px;">
                     <i class="bi bi-bell-fill fs-3"></i> 
                 </div>
-                <span class="d-none d-sm-inline">Powiadomienia</span>
+                <span class="d-none d-md-inline">Powiadomienia</span>
             </a> 
         </li>
         <?php if(isset($_SESSION['logged_id']))
