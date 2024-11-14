@@ -14,7 +14,7 @@
 
 <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/navigation-search-bar.js"?>"></script>
 
-<div class="sidebar bg-black">    
+<div class="sidebar bg-black pe-2">    
     <div class="mx-auto" style="max-width: 200px;">
         <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_navigation.png"?>" alt="TuneForULogo" class="img-fluid d-none d-sm-block">                
     </div>    

@@ -49,13 +49,13 @@
             <div class="col-10 col-md-6 text-center userBox">
                 <div class="container">
                     <div class="row userInfo">
-                        <div class="col-6">
+                        <div class="col-12 col-md-9 p-0">
                             <div class="d-flex justify-content-start align-items-end h-100">
                                 <span class="ms-2 fs-4 fw-bold text-break"><?=$post_user ['user_name']?></span>
                                 <span class="text-secondary mb-1 text-break" style="font-size: 12px;"> @<?=$post_user ['login']?></span>
                             </div>
                         </div>
-                        <div class="col-6 mt-3">
+                        <div class="col-12 col-md-3 p-0">
                             <div class="profilePicBox d-flex justify-content-end mt-2">
                                 <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$post_user ['profile_picture']?>" class="profileImage"/>
                             </div>
