@@ -76,8 +76,10 @@
             <div class="col-12 col-md-3 editBox">
                 <?php
                     if($post_user ['user_id'] == $_SESSION['logged_id']){
-                        echo '<div class="container p-3 mt-3 rounded-4 border border-secondary text-center">';
-                            echo '<a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/edit-user-form.php?id=".$_SESSION['logged_id'].'" class="text-decoration-none">Edytuj Dane Użytkownika</a>';
+                        echo '<div class="container p-3 mt-3 rounded-4 border d-flex flex-column border-secondary text-center">';
+                            echo '<a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/edit-user-form.php?id=".$_SESSION['logged_id'].'" class="text-decoration-none text-white">Edytuj Dane Użytkownika</a>';
+                            echo '<hr>';
+                            echo '<a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/edit-password-form.php".'" class="text-decoration-none text-white">Zmień hasło</a>';
                         echo '</div>';
                     }
                 ?>  
