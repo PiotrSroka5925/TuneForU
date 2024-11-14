@@ -10,9 +10,9 @@
         $query->bindValue(':user_id', $_GET['id'], PDO::PARAM_INT);
         $query->execute();
 
-        $user = $query->fetch();
+        $post_user  = $query->fetch();
 
-        if (!$user) {
+        if (!$post_user ) {
             header('Location: '.$redirectUrl);
             exit;
         }
@@ -51,13 +51,13 @@
                     <div class="row userInfo">
                         <div class="col-6">
                             <div class="d-flex justify-content-start align-items-end h-100">
-                                <span class="ms-2 fs-4 fw-bold text-break"><?=$user['user_name']?></span>
-                                <span class="text-secondary mb-1 text-break" style="font-size: 12px;"> @<?=$user['login']?></span>
+                                <span class="ms-2 fs-4 fw-bold text-break"><?=$post_user ['user_name']?></span>
+                                <span class="text-secondary mb-1 text-break" style="font-size: 12px;"> @<?=$post_user ['login']?></span>
                             </div>
                         </div>
                         <div class="col-6 mt-3">
                             <div class="profilePicBox d-flex justify-content-end mt-2">
-                                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture']?>" class="profileImage"/>
+                                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$post_user ['profile_picture']?>" class="profileImage"/>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,13 @@
                 </div>
             </div>
             <div class="col-12 col-md-3 editBox">
-
+                <?php
+                echo $post_user ['user_id'];
+                echo '<br>'.$_SESSION['logged_id'];
+                    if($post_user ['user_id'] == $_SESSION['logged_id']){
+                        echo '<a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/edit-user-form.php?id=".$_SESSION['logged_id'].'">Edytuj informacje</a>';
+                    }
+                ?>  
             </div>
         </div>
     </div>
