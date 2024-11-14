@@ -58,7 +58,7 @@
         echo '
             <li class="nav-item bg-black ">            
             <button class="btn btn-profile text-white d-flex align-items-center border border-0 mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture'].'" alt="ProfilePicture" class="img-fluid rounded-circle me-2" width="40" height="40" alt="">
+                <img src="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu ".$user['profile_picture'].'" alt="ProfilePicture" class="rounded-circle me-2" width="40" height="40" alt="">
                 <div class="d-none d-md-flex navWriting flex-column text-start">
                     <span class="fw-bold">'.$user['user_name'].'</span>
                     <span class="text-secondary">@'.$user['login'].'</span>

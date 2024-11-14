@@ -94,23 +94,23 @@
 
                         <div class="d-flex align-items-center justify-content-between">
                             <label for="user_name" class="text-light text-start">Nazwa użytkownika</label>
-                            <input type="text" name="user_name" id="user_name" value="<?= htmlspecialchars($user_data['user_name']) ?>" class="form-control m-0 border-0 bg-transparent text-light text-center">
+                            <input type="text" name="user_name" id="user_name" value="<?= htmlspecialchars($user_data['user_name']) ?>" class="form-control m-0 border-0 bg-transparent text-light text-start">
                         </div>
                         <hr>
 
                         <div class="d-flex align-items-center justify-content-between">
                             <label for="email" class="text-light text-start">Email</label>
-                            <input type="email" name="email" id="email" value="<?= htmlspecialchars($user_data['email']) ?>" class="form-control m-0 border-0 bg-transparent text-light text-center">
+                            <input type="email" name="email" id="email" value="<?= htmlspecialchars($user_data['email']) ?>" class="form-control m-0 border-0 bg-transparent text-light text-start">
                         </div>
                         <hr>
 
                         <div class="d-flex align-items-center justify-content-between">
-                            <label for="profile_picture" class="col-sm-4 col-form-label text-light text-start">Zdjęcie profilowe</label>
-                            <div class="text-center col-sm-8 d-flex align-items-center justify-content-center">
+                            <label for="profile_picture" class="text-light text-start">Zdjęcie profilowe</label>
+                            <div class="ms-2 text-center d-flex align-items-center justify-content-center">
                                 <?php if ($user_data['profile_picture']): ?>
                                     <img src="<?= $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu' . $user_data['profile_picture'] ?>" id="profilePicturePreview" alt="Zdjęcie profilowe" class="profile-picture-preview me-3" style="width: 50px; height: 50px; border-radius: 50%;">
                                 <?php endif; ?>
-                                <input type="file" name="profile_picture" id="profile_picture" accept="image/*" class="form-control m-0 border-0 bg-transparent text-light text-center">
+                                <input type="file" name="profile_picture" id="profile_picture" accept="image/*" class="form-control m-0 border-0 bg-transparent text-light text-start">
                             </div>
                         </div>
                         <hr>
