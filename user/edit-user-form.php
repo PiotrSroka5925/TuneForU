@@ -1,34 +1,34 @@
 <?php
-session_start();
-require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php'); 
-$redirectUrl = $protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php';
+    session_start();
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/database.php'); 
+    $redirectUrl = $protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php';
 
 
-if (!isset($_SESSION['logged_id'])) {
-    header('Location: ' . $redirectUrl);
-    exit;
-}
-
-if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
-
-    $query = $db->prepare("SELECT login, user_name, email, profile_picture FROM user WHERE user_id = :user_id");
-    $query->bindValue(':user_id', $_GET['id'], PDO::PARAM_INT);
-    $query->execute();
-    $user_data = $query->fetch(PDO::FETCH_ASSOC);
-
-    if (!$user_data) {
+    if (!isset($_SESSION['logged_id'])) {
         header('Location: ' . $redirectUrl);
         exit;
     }
-} else {
-    header('Location: ' . $redirectUrl);
-    exit;
-}
 
-$query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
-$query->bindParam(':user_id', $_SESSION['logged_id'], PDO::PARAM_INT);
-$query->execute();
-$user = $query->fetch();
+    if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
+
+        $query = $db->prepare("SELECT login, user_name, email, profile_picture FROM user WHERE user_id = :user_id");
+        $query->bindValue(':user_id', $_GET['id'], PDO::PARAM_INT);
+        $query->execute();
+        $user_data = $query->fetch(PDO::FETCH_ASSOC);
+
+        if (!$user_data) {
+            header('Location: ' . $redirectUrl);
+            exit;
+        }
+    } else {
+        header('Location: ' . $redirectUrl);
+        exit;
+    }
+
+    $query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
+    $query->bindParam(':user_id', $_SESSION['logged_id'], PDO::PARAM_INT);
+    $query->execute();
+    $user = $query->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -103,37 +103,26 @@ $user = $query->fetch();
 
                     <form method="POST" action="/tuneforu/edit-profile.php" class="loginForm" enctype="multipart/form-data">
                         <input type="hidden" name="user_id" value="<?= htmlspecialchars($_GET['id']) ?>">                   
-                        <div class="row">
-                            <label for="login" class="col-sm-4 col-form-label text-light text-start">Login</label>
-                            <div class="col-sm-8 text-center">
-                                <input type="text" name="login" id="login" value="<?= htmlspecialchars($user_data['login']) ?>" class="form-control border-0 bg-transparent text-light text-center">
-                            </div>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="user_name" class="text-light text-start">Nazwa użytkownika</label>
+                            <input type="text" name="user_name" id="user_name" value="<?= htmlspecialchars($user_data['user_name']) ?>" class="form-control m-0 border-0 bg-transparent text-light text-center">
                         </div>
                         <hr>
 
-                        <div class="row">
-                            <label for="user_name" class="col-sm-4 col-form-label text-light text-start">Nazwa użytkownika</label>
-                            <div class="col-sm-8 text-center">
-                                <input type="text" name="user_name" id="user_name" value="<?= htmlspecialchars($user_data['user_name']) ?>" class="form-control border-0 bg-transparent text-light text-center">
-                            </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="email" class="text-light text-start">Email</label>
+                            <input type="email" name="email" id="email" value="<?= htmlspecialchars($user_data['email']) ?>" class="form-control m-0 border-0 bg-transparent text-light text-center">
                         </div>
                         <hr>
 
-                        <div class="row">
-                            <label for="email" class="col-sm-4 col-form-label text-light text-start">Email</label>
-                            <div class="col-sm-8 text-center">
-                                <input type="email" name="email" id="email" value="<?= htmlspecialchars($user_data['email']) ?>" class="form-control border-0 bg-transparent text-light text-center">
-                            </div>
-                        </div>
-                        <hr>
-
-                        <div class="row">
+                        <div class="d-flex align-items-center justify-content-between">
                             <label for="profile_picture" class="col-sm-4 col-form-label text-light text-start">Zdjęcie profilowe</label>
                             <div class="text-center col-sm-8 d-flex align-items-center justify-content-center">
                                 <?php if ($user_data['profile_picture']): ?>
                                     <img src="<?= $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu' . $user_data['profile_picture'] ?>" id="profilePicturePreview" alt="Zdjęcie profilowe" class="profile-picture-preview me-3" style="width: 50px; height: 50px; border-radius: 50%;">
                                 <?php endif; ?>
-                                <input type="file" name="profile_picture" id="profile_picture" accept="image/*">
+                                <input type="file" name="profile_picture" id="profile_picture" accept="image/*" class="form-control m-0 border-0 bg-transparent text-light text-center">
                             </div>
                         </div>
                         <hr>
