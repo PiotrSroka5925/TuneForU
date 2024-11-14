@@ -66,13 +66,13 @@
             </button>
             <div class="dropdown align-items-center d-flex">                
                 <ul class="dropdown-menu dropdown-menu-blur w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
-                    <li>                    
-                        <a class="dropdown-item dropdown-item-bg text-light " href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/edit-user-form.php?id=".$user['user_id'].'">
+                    <li>
+                        <a class="dropdown-item dropdown-item-bg text-light" href="'.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/user/user.php?id='.$user['user_id'].'" >
                             Profil
                         </a>
                     </li>                                      
                     <li>
-                        <a class="dropdown-item dropdown-item-bg text-light " href="logout.php">
+                        <a class="dropdown-item dropdown-item-bg text-light " href="'.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/logout.php">
                             Wyloguj się
                         </a>
                     </li>
