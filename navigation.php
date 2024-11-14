@@ -88,7 +88,7 @@
         <?php if(!isset($_SESSION['logged_id']))    
         echo '
         <li class="nav-item">
-            <a href="register.php">
+            <a href="'.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/register.php'.'">
                 <button class="btn btn-custom text-white fw-bold align-items-center" type="button" data-bs-toggle="modal"><i class="bi bi-person-fill navIcon"></i> <span class="navWriting">Zaloguj się</span></button>
             </a>
         </li>   

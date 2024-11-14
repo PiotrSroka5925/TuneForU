@@ -45,14 +45,16 @@
             </div>
             <div class="col-10 col-sm-9 col-lg-7 border-start border-secondary">
                 <div class="py-2">
-                    <div class="d-flex w-100 align-items-center border-bottom border-secondary pb-2">
-                        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55">
-                        <div class="w-100 d-flex align-items-end">
-                            <span class="ms-2 fs-4 fw-bold text-break"><?=$post['user_name']?></span>
-                            <span class="text-secondary mb-1 text-break" style="font-size: 12px;"> @<?=$post['login']?></span>
-                            <span class="d-block ms-auto"> <?=$post['date']?></span>
+                    <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/user.php?id=".$post['user_id']?>" class="text-white text-decoration-none">
+                        <div class="d-flex w-100 align-items-center border-bottom border-secondary pb-2">
+                            <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55">
+                            <div class="w-100 d-flex align-items-end">
+                                <span class="ms-2 fs-4 fw-bold text-break"><?=$post['user_name']?></span>
+                                <span class="text-secondary mb-1 text-break" style="font-size: 12px;"> @<?=$post['login']?></span>
+                                </a>
+                                <span class="d-block ms-auto"> <?=$post['date']?></span>
+                            </div>
                         </div>
-                    </div>
 
                     <div>
                         <span class="fs-4 text-break"><?=$post['title']?></span>
