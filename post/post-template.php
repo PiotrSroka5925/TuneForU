@@ -10,20 +10,22 @@
 ?>
 
 <div class="postContainer">
-    <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/post/post.php?id=".$post['post_id']?>" class="text-white text-decoration-none">
         <div class="d-flex mt-2">
             <div style="width: 55px;"> 
-                <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55" height="55">
+                <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/user.php?id=".$post['user_id']?>"><img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu".$post['profile_picture']?>" alt="profile_picture" class="rounded-circle" width="55" height="55"></a>
             </div>
             <div class="px-2" style="width: calc(100% - 55px) !important;">
                 <div class="postHeader">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="row flex-fill">
                             <div class="col-sm-12 col-md-6 text-start">
-                                <span class="username"><?=$post['user_name']?></span>
-                                <span class="login"> @<?=$post['login']?></span>
+                                <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/user.php?id=".$post['user_id']?>" class="text-decoration-none text-white">    
+                                    <span class="username"><?=$post['user_name']?></span>
+                                    <span class="login"> @<?=$post['login']?></span>
+                                </a>
                             </div>
-                            <div class="col-sm-12 col-md-6">
+                        
+                            <div class="col-sm-12 col-md-6 text-start">
                                 <span class="pe-5 date"> <?=$post['date']?></span>
                             </div>             
                         </div>
@@ -31,7 +33,7 @@
                             <i class="bi bi-three-dots"></i>
                         </div>
                     </div>
-
+    <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/post/post.php?id=".$post['post_id']?>" class="text-white text-decoration-none">
                     <div class="postTitle text-start">
                         <?=$post['title']?>
                     </div>  
