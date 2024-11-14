@@ -54,6 +54,9 @@ if (isset($_POST['user_id']) && isset($_SESSION['logged_id'])) {
                     $dir = $_SERVER['DOCUMENT_ROOT'].'/tuneforu/img/profiles/';
                     if (move_uploaded_file($tmpFilePath, $dir . basename($fileName))) {
                         $profile_picture = "/img/profiles/" . $fileName;
+                        if (file_exists($_SERVER['DOCUMENT_ROOT']."/tuneforu".$current_picture) && $current_picture != "/img/profiles/default.jpg") {
+                            unlink($_SERVER['DOCUMENT_ROOT']."/tuneforu".$current_picture);
+                        }
                     }
                 } else {
                     $allValid = false;
