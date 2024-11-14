@@ -65,8 +65,6 @@
                     <h1 class="header">Zmień hasło<br>Użytkownika</h1> 
 
                     <form method="POST" action="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/edit-password.php"?>" class="loginForm mt-5" enctype="multipart/form-data">
-                        <input type="hidden" name="user_id" value="<?= htmlspecialchars($_GET['id']) ?>">
-                   
                         <div>
                             <label for="password" class="form-label text-light">Aktualne hasło</label>
                             <input type="password" name="password" id="password" class="form-control border-0 bg-transparent text-light" required>
