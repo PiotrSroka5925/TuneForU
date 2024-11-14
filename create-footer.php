@@ -18,9 +18,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="fw-semibold">Menu</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-1"><a href="#!" class="footerLink text-white text-decoration-none text-lightgray">Strona główna</a></li>
-                        <li class="mb-1"><a href="#!" class="footerLink text-white text-decoration-none text-lightgray">Szukaj</a></li>
-                        <li class="mb-1"><a href="#!" class="footerLink text-white text-decoration-none text-lightgray">Profil</a></li>
+                        <li class="mb-1"><a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php".'" class="footerLink text-white text-decoration-none text-lightgray">Strona główna</a></li>
+                        <li class="mb-1"><a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php".'" class="footerLink text-white text-decoration-none text-lightgray">Szukaj</a></li>
+                        <li class="mb-1"><a href="'; if(isset($user)) {echo $protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/user.php?id=".$user['user_id'];}else{echo '#';} echo'" class="footerLink text-white text-decoration-none text-lightgray">Profil</a></li>
                         <li><a href="#!" class="footerLink text-white text-decoration-none text-lightgray">Kontakt</a></li>
                     </ul>
                 </div>

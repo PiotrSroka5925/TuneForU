@@ -181,11 +181,13 @@
             ?>
         </div>
 
-        <div class="row gx-5 m-0" id="row">
+        <div class="row gx-5 m-0 h-100" id="row">
             <div class="col-sm-12 col-md-6">
                 <div class="d-flex h-100 align-items-center justify-content-center imageColumn">
-                    <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" class="img-fluid d-none d-md-block" id="upscaledLogo">
-                    <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white.png"?>" class="img-fluid d-md-none d-sm-block">
+                    <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php"?>">
+                        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_upscaled.png"?>" class="img-fluid d-none d-md-block" id="upscaledLogo">
+                        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white.png"?>" class="img-fluid d-md-none d-sm-block">
+                    </a>
                 </div>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -246,7 +248,7 @@
     <?php 
         require_once($_SERVER['DOCUMENT_ROOT'].'/tuneforu/create-footer.php');
     ?>
-    
+
     <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/register-profile-picture.js"?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
