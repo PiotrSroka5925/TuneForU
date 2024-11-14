@@ -86,7 +86,7 @@ if (isset($_POST['user_id'])) {
         $_SESSION['old_user_name'] = $user_name;
         $_SESSION['old_email'] = $email;
         $_SESSION['old_profile_picture'] = $profile_picture;
-        header("Location: /tuneforu/profile-form.php?error=true&id=" . urlencode($user_id));
+        header("Location: /tuneforu/user/edit-user-form.php?error=true&id=" . urlencode($user_id));
         exit();
     }
    
@@ -99,11 +99,11 @@ if (isset($_POST['user_id'])) {
     $stmt->bindValue(":user_id", $user_id, PDO::PARAM_INT);
 
     if ($stmt->execute()) {
-        header("Location: /tuneforu/profile-form.php?error=true&id=" . urlencode($user_id));
+        header("Location: /tuneforu/user/edit-user-form.php?error=true&id=" . urlencode($user_id));
         exit();
     } else {
         $_SESSION['general_error'] = "Wystąpił błąd przy aktualizacji danych.";
-        header("Location: /tuneforu/profile-form.php?error=true&id=" . urlencode($user_id));
+        header("Location: /tuneforu/user/edit-user-form.phpp?error=true&id=" . urlencode($user_id));
         exit();
     }
 }
