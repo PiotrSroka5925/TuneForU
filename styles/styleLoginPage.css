@@ -3,10 +3,6 @@
     height: 100vh !important;
     margin: 0;
 }
-#row
-{
-    height: 100vh !important;
-}
 
 .footer
 {
@@ -97,26 +93,4 @@
 #profilePicturePreview{
     height: 50px;
     width: 50px;
-}
-
-#profile_picture{
-    display: none;
-}
-
-.custom-file-upload{
-    color: #000;
-    border-radius: 5px;
-    width: 100px;
-    background-color: #ffffff;
-    display: inline-block;
-    padding: 1px 6px;
-    cursor: pointer;
-}
-
-#profilePictureFileName{
-    display: -webkit-box;
-    --webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    max-width: 200px;
 }

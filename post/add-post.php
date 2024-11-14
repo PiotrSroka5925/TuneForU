@@ -13,7 +13,7 @@
         }
 
         $text = $_POST['text'];
-        if(strlen($title) < 3 || strlen($title) > 500){
+        if(strlen($text) < 3 || strlen($text) > 500){
             $success = false;
             $_SESSION['text_error'] = "Treść musi mieć od 3 do 500 znaków!";
         }
@@ -49,17 +49,20 @@
             }
         }
 
-        if($success){
+        if ($success) {          
+            $date = new DateTime("now", new DateTimeZone("Europe/Warsaw"));
+            $formattedDate = $date->format("Y-m-d H:i");
+        
             $query = $db->prepare("INSERT INTO post(title, text, date, data, user_id) VALUES (:title, :text, :date, :data, :user_id)");
             $query->execute(array(
                 ':title' => $title,
                 ':text' => $text,
-                ':date' => date("Y-m-d"),
+                ':date' => $formattedDate,
                 ':data' => json_encode($data),
                 ':user_id' => $_SESSION['logged_id']
             ));
-
-            header('Location: '.$protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php'); 
+        
+            header('Location: ' . $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu/index.php'); 
         }
     }
 ?>

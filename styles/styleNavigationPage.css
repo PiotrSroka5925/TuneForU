@@ -1,9 +1,8 @@
 .sidebar {
-    height: 100vh;
-    width: 250px;
+    height: 100vh;    
     background-color: #000;
     color: #fff;
-    position: fixed;
+    /*position: fixed; */
     padding-top: 20px;
 }
 .nav-link {
@@ -12,22 +11,41 @@
     padding: 10px 20px;
     display: block;
     text-decoration: none;
+    border-radius: 25px;
 }
 .nav-link:hover {
-    background-color: #1d1d1d;
-    border-radius: 25px;
-    color: white;
+    background-color: #1d1d1d;   
+    color: rgb(209, 18, 59);
 }
 .nav-item {
     margin-bottom: 15px;
+    width: 100%;
 }
+
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    padding-left: 20px;
+    padding-left: 20px; 
 }
+
+.btn-profile:hover
+{
+    background-color: #1d1d1d;   
+}
+
+.btn-profile
+{
+    width: 100%;
+    border-radius: 25px;
+}
+
+.custom-color
+{
+    color: rgb(209, 18, 59);
+}
+
 .btn-custom {
-    background-color: #1d9bf0;
+    background-color: rgb(209, 18, 59);
     color: #fff;
     border: none;
     width: 80%;
@@ -38,4 +56,130 @@
 }
 .btn-custom:hover {
     background-color: gray;
+}
+
+.dropdown-item-bg:hover
+{
+    background-color: #1d1d1d;
+}
+
+
+.navWriting {
+    display: none;
+}
+
+.navIcon {
+    display: inline-block;
+}
+
+@media only screen and (min-width: 768px) {
+    .navWriting {
+        display: inline-block;
+    }
+       
+    .navIcon {
+        display: none; 
+    }
+   
+    
+}
+
+
+@media only screen and (max-width: 767px) {
+
+    .btn-profile
+    {
+        margin-left: auto;
+        margin-right: auto;  
+        display: block;
+        width: 40px;
+        height: 40px;
+        padding: 0px;
+    }  
+
+    .btn-custom
+    {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+    } 
+
+}
+
+
+@media only screen and (max-width: 599px) {        
+
+    .nav-item a, #navSearchButton{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .iconDiv
+    {
+        margin: auto;
+    }
+
+    .bi
+    {
+        margin-left: auto;
+        margin-right: auto;        
+    }
+
+    .nav-item a, #navSearchButton{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.modal
+{
+    background-color: rgba(255, 255, 255, 0.096);
+}
+
+.postTextArea
+{
+    border-color: transparent;
+    background-color: transparent;
+    border-width: 0px;
+    width: 100%;
+    height: 200px;
+    border: 0;
+    color: white;
+    outline: none;
+    resize: none;
+    scrollbar-color: transparent;
+}
+
+.postSubmitButton
+{
+    border: 2px solid rgb(65, 65, 65);
+    background-color: transparent;
+    color: rgb(209, 18, 59);
+    font-weight: bold;
+    transition-duration: 0.3s;
+    border-radius: 25px;
+}
+
+input
+{
+    outline: 0;
+}
+
+.dropdown-item-bg:hover
+{
+    background-color: #00000052;
+}
+.dropdown-menu-blur
+{
+    background-color: #ffffff23;
+    backdrop-filter: blur(4px);
+}
+.dropdown-menu-blur a
+{
+    font-weight: 500;
 }
