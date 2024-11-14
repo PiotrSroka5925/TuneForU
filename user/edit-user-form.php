@@ -93,7 +93,7 @@
                 <div class="d-flex h-100 flex-column align-items-start justify-content-center formColumn">
                     <h1 class="header">Edytuj dane<br>Użytkownika</h1> 
 
-                    <form method="POST" action="/tuneforu/edit-profile.php" class="loginForm" enctype="multipart/form-data">
+                    <form method="POST" action="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/edit-user.php"?>" class="loginForm" enctype="multipart/form-data">
                         <input type="hidden" name="user_id" value="<?= htmlspecialchars($_GET['id']) ?>">                   
 
                         <div class="d-flex align-items-center justify-content-between">

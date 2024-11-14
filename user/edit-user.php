@@ -11,12 +11,7 @@ if (isset($_POST['user_id']) && isset($_SESSION['logged_id'])) {
         header("Location: /tuneforu/index.php");
         exit;
     }
-
-    $query = $db->prepare("SELECT login FROM user WHERE user_id = :user_id");
-    $query->bindValue(':user_id', $user_id, PDO::PARAM_INT);
-    $query->execute();
-    $login = $query->fetchColumn();
-
+  
     $user_name = $_POST['user_name'];
     if (strlen($user_name) < 3 || strlen($user_name) > 25) {
         $allValid = false;
