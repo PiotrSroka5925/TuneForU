@@ -36,7 +36,7 @@
             $updateQuery->bindValue(':pass', $pass_hash, PDO::PARAM_STR);
             $updateQuery->bindValue(':user_id', $user_id, PDO::PARAM_STR);
             $updateQuery->execute();
-            header('Location: ' . $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu/index.php');
+            header('Location: ' . $protocol . $_SERVER['HTTP_HOST'] . '/tuneforu/logout.php');
         }
         else{
             header('Location:' . $_SERVER['HTTP_REFERER']);
