@@ -30,13 +30,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TuneForU</title>
     <link rel="icon" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/small_logo.png"?>">
-    <link rel="stylesheet" href="../styles/styleMainPage.css">
-    <link rel="stylesheet" href="../styles/fullPage.css">
-    <link rel="stylesheet" href="../styles/userPageStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../styles/styleNavigationPage.css"> 
-    <link rel="stylesheet" href="../styles/fullPage.css">
+    <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/styleMainPage.css"?>">
+    <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/fullPage.css"?>">
+    <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/userPageStyle.css"?>">
+    <link rel="stylesheet" href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/styles/styleNavigationPage.css"?>">
 </head>
 <body class="bg-black text-white">
     <div id="fullpage"></div>
@@ -84,13 +83,9 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/full-page-photo.js"></script>
-    <script src="js/get-posts.js"></script>
-    <script src="js/like-post.js"></script>
-    <script src="js/preview-images.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="../js/get-user-posts.js"></script>
-    <script src="../js/like-post.js"></script>
-    <script src="../js/full-page-photo.js"></script>
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/get-user-posts.js"?>"></script>
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/like-post.js"?>"></script>
+    <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/full-page-photo.js"?>"></script>
 </body>
 </html>
