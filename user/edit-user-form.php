@@ -53,15 +53,7 @@
                     echo $_SESSION['general_error']; 
                     unset($_SESSION['general_error']);
                     echo  '</div>';
-                }                            
-
-                if(isset($_SESSION['login_error']))
-                {
-                    echo ' <div class="alert alert-warning mt-3" role="alert">';
-                    echo $_SESSION['login_error'];
-                    unset($_SESSION['login_error']);
-                    echo '</div>';
-                }              
+                }                                             
             
                 if(isset($_SESSION['user_name_error']))
                 {
