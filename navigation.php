@@ -67,7 +67,7 @@
             <div class="dropdown align-items-center d-flex">                
                 <ul class="dropdown-menu dropdown-menu-blur w-100 m-0 rounded-4" aria-labelledby="userDropdown">                   
                     <li>
-                        <a class="dropdown-item dropdown-item-bg text-light " href="profile.php">
+                        <a class="dropdown-item dropdown-item-bg text-light " href="">
                             Profil
                         </a>
                     </li>                                      
