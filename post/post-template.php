@@ -18,10 +18,14 @@
             <div class="px-2" style="width: calc(100% - 55px) !important;">
                 <div class="postHeader">
                     <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <span class="username"><?=$post['user_name']?></span>
-                            <span class="login"> @<?=$post['login']?>|</span>
-                            <span class="pe-5 date"> <?=$post['date']?></span>
+                        <div class="row flex-fill">
+                            <div class="col-sm-12 col-md-6 text-start">
+                                <span class="username"><?=$post['user_name']?></span>
+                                <span class="login"> @<?=$post['login']?></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <span class="pe-5 date"> <?=$post['date']?></span>
+                            </div>             
                         </div>
                         <div>
                             <i class="bi bi-three-dots"></i>
