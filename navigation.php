@@ -14,12 +14,16 @@
 
 <script src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/js/navigation-search-bar.js"?>"></script>
 
-<div class="sidebar bg-black pe-2">    
+<div class="sidebar bg-black">    
     <div class="mx-auto" style="max-width: 200px;">
-        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_navigation.png"?>" alt="TuneForULogo" class="img-fluid d-none d-sm-block">                
+        <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php"?>">
+            <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/logo_white_navigation.png"?>" alt="TuneForULogo" class="img-fluid d-none d-sm-block"> 
+        </a>               
     </div>    
-    <div class="mx-auto" style="width:40px;">    
-        <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/small_logo.png"?>" alt="TuneForULogo" class="img-fluid d-block d-sm-none mx-auto mb-4" width="40px" height="40px">
+    <div class="mx-auto" style="width:40px;">   
+        <a href="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/index.php"?>">
+            <img src="<?=$protocol.$_SERVER['HTTP_HOST']."/tuneforu/img/small_logo.png"?>" alt="TuneForULogo" class="img-fluid d-block d-sm-none mx-auto mb-4" width="40px" height="40px">
+        </a>
     </div>
 
     <ul class="nav flex-column  aling-items-center">
