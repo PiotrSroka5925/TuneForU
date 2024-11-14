@@ -75,10 +75,10 @@
             </div>
             <div class="col-12 col-md-3 editBox">
                 <?php
-                echo $post_user ['user_id'];
-                echo '<br>'.$_SESSION['logged_id'];
                     if($post_user ['user_id'] == $_SESSION['logged_id']){
-                        echo '<a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/edit-user-form.php?id=".$_SESSION['logged_id'].'">Edytuj informacje</a>';
+                        echo '<div class="container p-3 mt-3 rounded-4 border border-secondary text-center">';
+                            echo '<a href="'.$protocol.$_SERVER['HTTP_HOST']."/tuneforu/user/edit-user-form.php?id=".$_SESSION['logged_id'].'" class="text-decoration-none">Edytuj Dane Użytkownika</a>';
+                        echo '</div>';
                     }
                 ?>  
             </div>
