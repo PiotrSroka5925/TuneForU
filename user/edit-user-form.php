@@ -4,14 +4,9 @@
     $redirectUrl = $protocol.$_SERVER['HTTP_HOST'].'/tuneforu/index.php';
 
 
-    if (!isset($_SESSION['logged_id'])) {
-        header('Location: ' . $redirectUrl);
-        exit;
-    }
+    if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) && isset($_SESSION['logged_id'])) {
 
-    if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
-
-        $query = $db->prepare("SELECT login, user_name, email, profile_picture FROM user WHERE user_id = :user_id");
+        $query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
         $query->bindValue(':user_id', $_GET['id'], PDO::PARAM_INT);
         $query->execute();
         $user_data = $query->fetch(PDO::FETCH_ASSOC);
@@ -20,15 +15,16 @@
             header('Location: ' . $redirectUrl);
             exit;
         }
+
+        if($user_data['user_id'] != $_SESSION['logged_id']){
+            header('Location: ' . $redirectUrl);
+            exit;
+        }
+
     } else {
         header('Location: ' . $redirectUrl);
         exit;
     }
-
-    $query = $db->prepare("SELECT * FROM user WHERE user_id = :user_id");
-    $query->bindParam(':user_id', $_SESSION['logged_id'], PDO::PARAM_INT);
-    $query->execute();
-    $user = $query->fetch();
 ?>
 
 <!DOCTYPE html>

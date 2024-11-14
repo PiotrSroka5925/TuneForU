@@ -25,7 +25,7 @@
 
         if(isset($_POST['userId']) && filter_var($_POST['userId'], FILTER_VALIDATE_INT)){
             $user_id = $_POST['userId'];
-            $where .= (empty($where) ? "WHERE" : " AND") . " user_id = :user_id";
+            $where .= (empty($where) ? "WHERE" : " AND") . " p.user_id = :user_id";
         }
         
         $dateFilter = "";
